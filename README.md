@@ -65,13 +65,13 @@ Wikipedia says
 
 First of all we have a door interface and the implementation
 ```csharp
-public interface Door
+public interface IDoor
 {
     float Width { get; set; }
     float Height { get; set; }
 }
 
-public class WoodenDoor : Door
+public class WoodenDoor : IDoor
 {
     public float Width { get; set; }
     public float Height { get; set; }
@@ -87,7 +87,7 @@ Then we have our door factory that makes the door and returns it
 ```csharp
 class DoorFactory
 {
-   public static Door MakeDoor(float width, float height)
+   public static IDoor MakeDoor(float width, float height)
    {
        return new WoodenDoor(width, height);
    }
@@ -121,12 +121,12 @@ Wikipedia says
 Taking our hiring manager example above. First of all we have an interviewer interface and some implementations for it
 
 ```csharp
-interface Interviewer
+interface IInterviewer
 {
     void askQuestions();
 }
 
-class Developer : Interviewer
+class Developer : IInterviewer
 {
     public void askQuestions()
     {
@@ -134,7 +134,7 @@ class Developer : Interviewer
     }
 }
 
-class CommunityExecutive : Interviewer
+class CommunityExecutive : IInterviewer
 {
     public void askQuestions()
     {
