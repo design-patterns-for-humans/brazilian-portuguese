@@ -64,43 +64,40 @@ Wikipedia says
 **Programmatic Example**
 
 First of all we have a door interface and the implementation
-```php
-interface Door {
-    public function getWidth() : float;
-    public function getHeight() : float;
+```csharp
+public interface Door
+{
+    float Width { get; set; }
+    float Height { get; set; }
 }
 
-class WoodenDoor implements Door {
-    protected $width;
-    protected $height;
+public class WoodenDoor : Door
+{
+    public float Width { get; set; }
+    public float Height { get; set; }
 
-    public function __construct(float $width, float $height) {
-        $this->width = $width;
-        $this->height = $height;
-    }
-    
-    public function getWidth() : float {
-        return $this->width;
-    }
-    
-    public function getHeight() : float {
-        return $this->height;
+    public WoodenDoor(float width, float height)
+	{
+        Width = width;
+        Height = height;
     }
 }
-````
+```
 Then we have our door factory that makes the door and returns it
-```php
-class DoorFactory {
-   public static function makeDoor($width, $height) : Door {
-       return new WoodenDoor($width, $height);
+```csharp
+class DoorFactory
+{
+   public static Door MakeDoor(float width, float height)
+   {
+       return new WoodenDoor(width, height);
    }
 }
 ```
 And then it can be used as
-```php
-$door = DoorFactory::makeDoor(100, 200);
-echo 'Width: ' . $door->getWidth();
-echo 'Height: ' . $door->getHeight();
+```csharp
+var door = DoorFactory.makeDoor(100, 200);
+Console.WriteLine("Width: " + door.Width);
+Console.WriteLine("Height: " + door.Height);
 ```
 
 **When to Use?**
@@ -123,20 +120,25 @@ Wikipedia says
  
 Taking our hiring manager example above. First of all we have an interviewer interface and some implementations for it
 
-```php
-interface Interviewer {
-    public function askQuestions();
+```csharp
+interface Interviewer
+{
+    void askQuestions();
 }
 
-class Developer implements Interviewer {
-    public function askQuestions() {
-        echo 'Asking about design patterns!';
+class Developer : Interviewer
+{
+    public void askQuestions()
+    {
+        Console.WriteLine("Asking about design patterns!");
     }
 }
 
-class CommunityExecutive implements Interviewer {
-    public function askQuestions() {
-        echo 'Asking about community building';
+class CommunityExecutive : Interviewer
+{
+    public void askQuestions()
+    {
+        Console.WriteLine("Asking about community building");
     }
 }
 ```
