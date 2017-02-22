@@ -123,12 +123,12 @@ Taking our hiring manager example above. First of all we have an interviewer int
 ```csharp
 interface IInterviewer
 {
-    void askQuestions();
+    void AskQuestions();
 }
 
 class Developer : IInterviewer
 {
-    public void askQuestions()
+    public void AskQuestions()
     {
         Console.WriteLine("Asking about design patterns!");
     }
@@ -136,7 +136,7 @@ class Developer : IInterviewer
 
 class CommunityExecutive : IInterviewer
 {
-    public void askQuestions()
+    public void AskQuestions()
     {
         Console.WriteLine("Asking about community building");
     }
@@ -145,40 +145,45 @@ class CommunityExecutive : IInterviewer
 
 Now let us create our `HiringManager`
 
-```php
-abstract class HiringManager {
-    
+```csharp
+abstract class HiringManager
+{
     // Factory method
-    abstract public function makeInterviewer() : Interviewer;
+    abstract public IInterviewer MakeInterviewer();
     
-    public function takeInterview() {
-        $interviewer = $this->makeInterviewer();
-        $interviewer->askQuestions();
+    public void TakeInterview()
+    {
+        var interviewer = MakeInterviewer();
+        interviewer.AskQuestions();
     }
 }
 ```
 Now any child can extend it and provide the required interviewer
-```php
-class DevelopmentManager extends HiringManager {
-    public function makeInterviewer() : Interviewer {
+```csharp
+class DevelopmentManager : HiringManager
+{
+    public IInterviewer MakeInterviewer()
+    {
         return new Developer();
     }
 }
 
-class MarketingManager extends HiringManager {
-    public function makeInterviewer() : Interviewer {
+class MarketingManager : HiringManager
+{
+    public IInterviewer MakeInterviewer()
+    {
         return new CommunityExecutive();
     }
 }
 ```
 and then it can be used as
 
-```php
-$devManager = new DevelopmentManager();
-$devManager->takeInterview(); // Output: Asking about design patterns
+```csharp
+var devManager = new DevelopmentManager();
+devManager.TakeInterview(); // Output: Asking about design patterns
 
-$marketingManager = new MarketingManager();
-$marketingManager->takeInterview(); // Output: Asking about community building.
+var marketingManager = new MarketingManager();
+marketingManager.TakeInterview(); // Output: Asking about community building.
 ```
 
 **When to use?**
