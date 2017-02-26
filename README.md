@@ -206,90 +206,107 @@ Wikipedia says
 
 Translating the door example above. First of all we have our `Door` interface and some implementation for it
 
-```php
-interface Door {
-    public function getDescription();
+```csharp
+interface IDoor
+{
+    void GetDescription();
 }
 
-class WoodenDoor implements Door {
-    public function getDescription() {
-        echo 'I am a wooden door';
+class WoodenDoor : IDoor
+{
+    public void GetDescription()
+    {
+        Console.WriteLine("I am a wooden door");
     }
 }
 
-class IronDoor implements Door {
-    public function getDescription() {
-        echo 'I am an iron door';
+class IronDoor : IDoor
+{
+    public void GetDescription()
+    {
+        Console.WriteLine("I am a iron door");
     }
 }
 ```
 Then we have some fitting experts for each door type
 
-```php
-interface DoorFittingExpert {
-    public function getDescription();
+```csharp
+interface IDoorFittingExpert
+{
+    void GetDescription();
 }
 
-class Welder implements DoorFittingExpert {
-    public function getDescription() {
-        echo 'I can only fit iron doors';
+class Welder : IDoorFittingExpert
+{
+    public void GetDescription()
+	{
+        Console.WriteLine("I can only fit iron doors");
     }
 }
 
-class Carpenter implements DoorFittingExpert {
-    public function getDescription() {
-        echo 'I can only fit wooden doors';
+class Carpenter : IDoorFittingExpert
+{
+    public void GetDescription()
+	{
+        Console.WriteLine("I can only fit wooden doors");
     }
 }
 ```
 
 Now we have our abstract factory that would let us make family of related objects i.e. wooden door factory would create a wooden door and wooden door fitting expert and iron door factory would create an iron door and iron door fitting expert
-```php
-interface DoorFactory {
-    public function makeDoor() : Door;
-    public function makeFittingExpert() : DoorFittingExpert;
+```csharp
+interface IDoorFactory
+{
+    IDoor MakeDoor();
+    IDoorFittingExpert MakeFittingExpert();
 }
 
 // Wooden factory to return carpenter and wooden door
-class WoodenDoorFactory implements DoorFactory {
-    public function makeDoor() : Door {
+class WoodenDoorFactory : IDoorFactory
+{
+    public IDoor MakeDoor()
+	{
         return new WoodenDoor();
     }
 
-    public function makeFittingExpert() : DoorFittingExpert{
+    public IDoorFittingExpert MakeFittingExpert() 
+	{
         return new Carpenter();
     }
 }
 
 // Iron door factory to get iron door and the relevant fitting expert
-class IronDoorFactory implements DoorFactory {
-    public function makeDoor() : Door {
+class IronDoorFactory : IDoorFactory
+{
+    public IDoor MakeDoor()
+	{
         return new IronDoor();
     }
 
-    public function makeFittingExpert() : DoorFittingExpert{
+    public IDoorFittingExpert MakeFittingExpert()
+	{
         return new Welder();
     }
 }
 ```
 And then it can be used as
-```php
-$woodenFactory = new WoodenDoorFactory();
+```csharp
+var woodenFactory = new WoodenDoorFactory();
 
-$door = $woodenFactory->makeDoor();
-$expert = $woodenFactory->makeFittingExpert();
+var door = woodenFactory.MakeDoor();
+var expert = woodenFactory.MakeFittingExpert();
 
-$door->getDescription();  // Output: I am a wooden door
-$expert->getDescription(); // Output: I can only fit wooden doors
+door.GetDescription();  // Output: I am a wooden door
+expert.GetDescription(); // Output: I can only fit wooden doors
 
 // Same for Iron Factory
-$ironFactory = new IronDoorFactory();
+var ironFactory = new IronDoorFactory();
 
-$door = $ironFactory->makeDoor();
-$expert = $ironFactory->makeFittingExpert();
+var door = ironFactory.MakeDoor();
+var expert = ironFactory.MakeFittingExpert();
 
-$door->getDescription();  // Output: I am an iron door
-$expert->getDescription(); // Output: I can only fit iron doors
+door.GetDescription();  // Output: I am an iron door
+expert.GetDescription(); // Output: I can only fit iron doors
 ```
 
 As you can see the wooden door factory has encapsulated the `carpenter` and the `wooden door` also iron door factory has encapsulated the `iron door` and `welder`. And thus it had helped us make sure that for each of the created door, we do not get a wrong fitting expert.   
