@@ -501,33 +501,38 @@ Singleton pattern is actually considered an anti-pattern and overuse of it shoul
 **Programmatic Example**
 
 To create a singleton, make the constructor private, disable cloning, disable extension and create a static variable to house the instance
-```php
-final class President {
-    private static $instance;
+```csharp
+// Example taken from http://csharpindepth.com/Articles/General/Singleton.aspx
+// There is a lot of caveat. So read it!
+public sealed class President
+{
+    private static readonly President instance = new President();
 
-    private function __construct() {
-        // Hide the constructor
+    // Explicit static constructor to tell C# compiler
+    // not to mark type as beforefieldinit
+    static President()
+    {
     }
-    
-    public static function getInstance() : President {
-        if (!self::$instance) {
-            self::$instance = new self();
+
+    private President()
+    {
+    }
+
+    public static President Instance
+    {
+        get
+        {
+            return instance;
         }
-        
-        return self::$instance;
     }
-    
-    private function __clone() {
-        // Disable cloning
-    }
-}
+} 
 ```
 Then in order to use
-```php
-$president1 = President::getInstance();
-$president2 = President::getInstance();
+```csharp
+var president1 = President.Instance;
+var president2 = President.Instance;
 
-var_dump($president1 === $president2); // true
+Console.WriteLine(President1 == President2); // true
 ```
 
 Structural Design Patterns
