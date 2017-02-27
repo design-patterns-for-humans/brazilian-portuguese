@@ -239,7 +239,7 @@ interface IDoorFittingExpert
 class Welder : IDoorFittingExpert
 {
     public void GetDescription()
-	{
+    {
         Console.WriteLine("I can only fit iron doors");
     }
 }
@@ -247,7 +247,7 @@ class Welder : IDoorFittingExpert
 class Carpenter : IDoorFittingExpert
 {
     public void GetDescription()
-	{
+    {
         Console.WriteLine("I can only fit wooden doors");
     }
 }
@@ -265,12 +265,12 @@ interface IDoorFactory
 class WoodenDoorFactory : IDoorFactory
 {
     public IDoor MakeDoor()
-	{
+    {
         return new WoodenDoor();
     }
 
     public IDoorFittingExpert MakeFittingExpert() 
-	{
+    {
         return new Carpenter();
     }
 }
@@ -279,12 +279,12 @@ class WoodenDoorFactory : IDoorFactory
 class IronDoorFactory : IDoorFactory
 {
     public IDoor MakeDoor()
-	{
+    {
         return new IronDoor();
     }
 
     public IDoorFittingExpert MakeFittingExpert()
-	{
+    {
         return new Welder();
     }
 }
@@ -437,46 +437,37 @@ In short, it allows you to create a copy of an existing object and modify it to 
 
 **Programmatic Example**
 
-In PHP, it can be easily done using `clone`
+In C#, it can be easily done using `ICloneable`
   
-```php
-class Sheep {
-    protected $name;
-    protected $category;
+```csharp
+class Sheep : ICloneable
+{
+    public string Name { get; set; }
+    public string Category { get; set; }
 
-    public function __construct(string $name, string $category = 'Mountain Sheep') {
-        $this->name = $name;
-        $this->category = $category;
+    public Sheep(string name, string category = "Mountain Sheep")
+    {
+        Name = name;
+        Category = category;
     }
-    
-    public function setName(string $name) {
-        $this->name = $name;
-    }
-
-    public function getName() {
-        return $this->name;
-    }
-
-    public function setCategory(string $category) {
-        $this->category = $category;
-    }
-
-    public function getCategory() {
-        return $this->category;
+	
+    public object Clone()
+    {
+    	return this.MemberwiseClone();
     }
 }
 ```
 Then it can be cloned like below
-```php
-$original = new Sheep('Jolly');
-echo $original->getName(); // Jolly
-echo $original->getCategory(); // Mountain Sheep
+```csharp
+var original = new Sheep('Jolly');
+Console.WriteLine(original.Name); // Jolly
+Console.WriteLine(original.Category); // Mountain Sheep
 
 // Clone and modify what is required
-$cloned = clone $original;
-$cloned->setName('Dolly');
-echo $cloned->getName(); // Dolly
-echo $cloned->getCategory(); // Mountain sheep
+var cloned = original.Clone();
+cloned.Name = "Dolly";
+Console.WriteLine(cloned.Name); // Dolly
+Console.WriteLine(cloned.Category); // Mountain Sheep
 ```
 
 Also you could use the magic method `__clone` to modify the cloning behavior.
