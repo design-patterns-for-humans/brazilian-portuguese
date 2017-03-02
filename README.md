@@ -561,56 +561,65 @@ Consider a game where there is a hunter and he hunts lions.
 
 First we have an interface `Lion` that all types of lions have to implement
 
-```php
-interface Lion {
-    public function roar();
+```csharp
+interface ILion
+{
+    void Roar();
 }
 
-class AfricanLion implements Lion {
-    public function roar() {}
+class AfricanLion : ILion
+{
+    public void Roar() {}
 }
 
-class AsianLion implements Lion {
-    public function roar() {}
+class AsianLion : ILion
+{
+    public void Roar() {}
 }
 ```
-And hunter expects any implementation of `Lion` interface to hunt.
-```php
-class Hunter {
-    public function hunt(Lion $lion) {
+And hunter expects any implementation of `ILion` interface to hunt.
+```csharp
+class Hunter
+{
+    public void Hunt(ILion lion)
+    {
     }
 }
 ```
 
 Now let's say we have to add a `WildDog` in our game so that hunter can hunt that also. But we can't do that directly because dog has a different interface. To make it compatible for our hunter, we will have to create an adapter that is compatible
  
-```php
+```csharp
 // This needs to be added to the game
-class WildDog {
-    public function bark() {}
+class WildDog
+{
+    public void Bark() {}
 }
 
 // Adapter around wild dog to make it compatible with our game
-class WildDogAdapter implements Lion {
-    protected $dog;
+class WildDogAdapter : ILion
+{
+    private Dog { get; set; }
 
-    public function __construct(WildDog $dog) {
-        $this->dog = $dog;
+    public WildDogAdapter(WildDog dog)
+    {
+        Dog = dog;
     }
     
-    public function roar() {
-        $this->dog->bark();
+    public void Roar()
+    {
+        Dog.Bark();
     }
 }
 ```
 And now the `WildDog` can be used in our game using `WildDogAdapter`.
 
-```php
-$wildDog = new WildDog();
-$wildDogAdapter = new WildDogAdapter($wildDog);
+```csharp
+var wildDog = new WildDog();
+wildDogAdapter = new WildDogAdapter(wildDog);
 
-$hunter = new Hunter();
-$hunter->hunt($wildDogAdapter);
+var hunter = new Hunter();
+hunter.Hunt(wildDogAdapter);
 ```
 
 🚡 Bridge
@@ -628,69 +637,82 @@ Wikipedia says
 
 **Programmatic Example**
 
-Translating our WebPage example from above. Here we have the `WebPage` hierarchy
+Translating our WebPage example from above. Here we have the `IWebPage` hierarchy
 
-```php
-interface WebPage {
-    public function __construct(Theme $theme);
-    public function getContent();
+```csharp
+interface IWebPage
+{
+    string GetContent();
 }
 
-class About implements WebPage {
-    protected $theme;
+class About : IWebPage
+{
+    private ITheme Theme { get; set; }
     
-    public function __construct(Theme $theme) {
-        $this->theme = $theme;
+    public About(ITheme theme)
+    {
+        Theme = theme;
     }
     
-    public function getContent() {
-        return "About page in " . $this->theme->getColor();
+    public function GetContent()
+    {
+        return "About page in " + Theme.GetColor();
     }
 }
 
-class Careers implements WebPage {
-   protected $theme;
+class Careers : IWebPage
+{
+   private ITheme Theme { get; set; }
    
-   public function __construct(Theme $theme) {
-       $this->theme = $theme;
+   public function Careers(ITheme theme)
+   {
+       Theme = theme;
    }
    
-   public function getContent() {
-       return "Careers page in " . $this->theme->getColor();
+   public string GetContent()
+   {
+       return "Careers page in " + Theme.GetColor();
    } 
 }
 ```
 And the separate theme hierarchy
-```php
-interface Theme {
-    public function getColor();
+```csharp
+interface ITheme
+{
+    string GetColor();
 }
 
-class DarkTheme implements Theme {
-    public function getColor() {
-        return 'Dark Black';
+class DarkTheme : ITheme
+{
+    public string GetColor()
+    {
+        return "Dark Black";
     }
 }
-class LightTheme implements Theme {
-    public function getColor() {
-        return 'Off white';
+class LightTheme : ITheme
+{
+    public function getColor()
+    {
+        return "Off white";
     }
 }
-class AquaTheme implements Theme {
-    public function getColor() {
-        return 'Light blue';
+class AquaTheme : ITheme
+{
+    public function GetColor()
+    {
+        return "Light blue";
     }
 }
 ```
 And both the hierarchies
-```php
-$darkTheme = new DarkTheme();
+```csharp
+var darkTheme = new DarkTheme();
 
-$about = new About($darkTheme);
-$careers = new Careers($darkTheme);
+var about = new About(darkTheme);
+var careers = new Careers(darkTheme);
 
-echo $about->getContent(); // "About page in Dark Black";
-echo $careers->getContent(); // "Careers page in Dark Black";
+Console.WriteLine(about.GetContent()); // "About page in Dark Black";
+Console.WriteLine(careers.GetContent()); // "Careers page in Dark Black";
 ```
 
 🌿 Composite
