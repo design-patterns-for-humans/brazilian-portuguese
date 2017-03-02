@@ -77,7 +77,7 @@ public class WoodenDoor : IDoor
     public float Height { get; set; }
 
     public WoodenDoor(float width, float height)
-	{
+    {
         Width = width;
         Height = height;
     }
@@ -470,7 +470,7 @@ Console.WriteLine(cloned.Name); // Dolly
 Console.WriteLine(cloned.Category); // Mountain Sheep
 ```
 
-Also you could use the magic method `__clone` to modify the cloning behavior.
+Also you could use the magic method `Clone` to modify the cloning behavior.
 
 **When to use?**
 
@@ -654,7 +654,7 @@ class About : IWebPage
         Theme = theme;
     }
     
-    public function GetContent()
+    public string GetContent()
     {
         return "About page in " + Theme.GetColor();
     }
@@ -664,7 +664,7 @@ class Careers : IWebPage
 {
    private ITheme Theme { get; set; }
    
-   public function Careers(ITheme theme)
+   public Careers(ITheme theme)
    {
        Theme = theme;
    }
@@ -691,14 +691,14 @@ class DarkTheme : ITheme
 }
 class LightTheme : ITheme
 {
-    public function getColor()
+    public string getColor()
     {
         return "Off white";
     }
 }
 class AquaTheme : ITheme
 {
-    public function GetColor()
+    public string GetColor()
     {
         return "Light blue";
     }
