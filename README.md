@@ -904,67 +904,77 @@ Wikipedia says
 **Programmatic Example**
 Taking our computer example from above. Here we have the computer class
 
-```php
-class Computer {
-
-    public function getElectricShock() {
-        echo "Ouch!";
+```csharp
+class Computer
+{
+    public void GetElectricShock()
+    {
+        Console.WriteLine("Ouch!");
     }
 
-    public function makeSound() {
-        echo "Beep beep!";
+    public void MakeSound()
+    {
+        Console.WriteLine("Beep beep!");
     }
 
-    public function showLoadingScreen() {
-        echo "Loading..";
+    public void ShowLoadingScreen()
+    {
+        Console.WriteLine("Loading..");
     }
 
-    public function bam() {
-        echo "Ready to be used!";
+    public void Bam()
+    {
+        Console.WriteLine("Ready to be used!");
     }
 
-    public function closeEverything() {
-        echo "Bup bup bup buzzzz!";
+    public void CloseEverything()
+    {
+        Console.WriteLine("Bup bup bup buzzzz!");
     }
 
-    public function sooth() {
-        echo "Zzzzz";
+    public void Sooth()
+    {
+        Console.WriteLine("Zzzzz");
     }
 
-    public function pullCurrent() {
-        echo "Haaah!";
+    public void PullCurrent()
+    {
+        Console.WriteLine("Haaah!");
     }
 }
 ```
 Here we have the facade
-```php
+```csharp
 class ComputerFacade
 {
-    protected $computer;
+    protected Computer Computer;
 
-    public function __construct(Computer $computer) {
-        $this->computer = $computer;
+    public ComputerFacade(Computer computer)
+    {
+        Computer = computer;
     }
 
-    public function turnOn() {
-        $this->computer->getElectricShock();
-        $this->computer->makeSound();
-        $this->computer->showLoadingScreen();
-        $this->computer->bam();
+    public void TurnOn()
+    {
+        Computer.GetElectricShock();
+        Computer.MakeSound();
+        Computer.ShowLoadingScreen();
+        Computer.Bam();
     }
 
-    public function turnOff() {
-        $this->computer->closeEverything();
-        $this->computer->pullCurrent();
-        $this->computer->sooth();
+    public void TurnOff()
+    {
+        Computer.CloseEverything();
+        Computer.PullCurrent();
+        Computer.Sooth();
     }
 }
 ```
 Now to use the facade
-```php
-$computer = new ComputerFacade(new Computer());
-$computer->turnOn(); // Ouch! Beep beep! Loading.. Ready to be used!
-$computer->turnOff(); // Bup bup buzzz! Haah! Zzzzz
+```csharp
+var computer = new ComputerFacade(new Computer());
+computer.TurnOn(); // Ouch! Beep beep! Loading.. Ready to be used!
+computer.TurnOff(); // Bup bup buzzz! Haah! Zzzzz
 ```
 
 🍃 Flyweight
