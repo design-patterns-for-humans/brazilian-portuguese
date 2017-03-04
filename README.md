@@ -813,97 +813,80 @@ Wikipedia says
 **Programmatic Example**
 
 Lets take coffee for example. First of all we have a simple coffee implementing the coffee interface
-
-```php
-interface Coffee {
-    public function getCost();
-    public function getDescription();
+```csharp
+interface ICoffee
+{
+    int Cost { get; }
+    string Description { get; }
 }
 
-class SimpleCoffee implements Coffee {
-
-    public function getCost() {
-        return 10;
-    }
-
-    public function getDescription() {
-        return 'Simple coffee';
-    }
+class SimpleCoffee : ICoffee
+{
+    public int Cost { get; } = 10;
+    public string Description { get; } = "Simple coffee";
 }
 ```
 We want to make the code extensible to allow options to modify it if required. Lets make some add-ons (decorators)
-```php
-class MilkCoffee implements Coffee {
+```csharp
+class MilkCoffee : ICoffee
+{
+    protected ICoffee Coffee { get; }
     
-    protected $coffee;
-
-    public function __construct(Coffee $coffee) {
-        $this->coffee = $coffee;
-    }
-
-    public function getCost() {
-        return $this->coffee->getCost() + 2;
-    }
-
-    public function getDescription() {
-        return $this->coffee->getDescription() . ', milk';
+    public int Cost { get { return Coffee.Cost + 2; } }
+	
+    public string Description { get { return Coffee.Description + ", milk"; } }
+	
+    public MilkCoffee(ICoffee coffee)
+    {
+        Coffee = coffee;
     }
 }
 
-class WhipCoffee implements Coffee {
+class WhipCoffee : ICoffee
+{
+    protected ICoffee Coffee { get; }
 
-    protected $coffee;
-
-    public function __construct(Coffee $coffee) {
-        $this->coffee = $coffee;
-    }
-
-    public function getCost() {
-        return $this->coffee->getCost() + 5;
-    }
-
-    public function getDescription() {
-        return $this->coffee->getDescription() . ', whip';
+    public int Cost { get { return Coffee.Cost + 5; } }
+	
+    public string Description { get { return Coffee.Description + ", whip"; } }
+	
+    public WhipCoffee(ICoffee coffee)
+    {
+        Coffee = coffee;
     }
 }
 
-class VanillaCoffee implements Coffee {
+class VanillaCoffee : ICoffee
+{
+    protected ICoffee Coffee { get; }
 
-    protected $coffee;
-
-    public function __construct(Coffee $coffee) {
-        $this->coffee = $coffee;
-    }
-
-    public function getCost() {
-        return $this->coffee->getCost() + 3;
-    }
-
-    public function getDescription() {
-        return $this->coffee->getDescription() . ', vanilla';
+    public int Cost { get { return Coffee.Cost + 3; } }
+	
+    public string Description { get { return Coffee.Description + ", vanilla"; } }
+	
+    public VanillaCoffee(ICoffee coffee)
+    {
+        Coffee = coffee;
     }
 }
-
 ```
-
 Lets make a coffee now
+```csharp
+var someCoffee = new SimpleCoffee();
+Console.WriteLine(someCoffee.Cost()); // 10
+Console.WriteLine(someCoffee.Description()); // Simple Coffee
 
-```php
-$someCoffee = new SimpleCoffee();
-echo $someCoffee->getCost(); // 10
-echo $someCoffee->getDescription(); // Simple Coffee
+someCoffee = new MilkCoffee(someCoffee);
+Console.WriteLine(someCoffee.Cost()); // 12
+Console.WriteLine(someCoffee.Description(); // Simple Coffee, milk
 
-$someCoffee = new MilkCoffee($someCoffee);
-echo $someCoffee->getCost(); // 12
-echo $someCoffee->getDescription(); // Simple Coffee, milk
+someCoffee = new WhipCoffee(someCoffee);
+Console.WriteLine(someCoffee.Cost()); // 17
+Console.WriteLine(someCoffee.Description()); // Simple Coffee, milk, whip
 
-$someCoffee = new WhipCoffee($someCoffee);
-echo $someCoffee->getCost(); // 17
-echo $someCoffee->getDescription(); // Simple Coffee, milk, whip
-
-$someCoffee = new VanillaCoffee($someCoffee);
-echo $someCoffee->getCost(); // 20
-echo $someCoffee->getDescription(); // Simple Coffee, milk, whip, vanilla
+someCoffee = new VanillaCoffee($someCoffee);
+Console.WriteLine(someCoffee.Cost()); // 20
+Console.WriteLine(someCoffee.Description()); // Simple Coffee, milk, whip, vanilla
 ```
 
 📦 Facade
