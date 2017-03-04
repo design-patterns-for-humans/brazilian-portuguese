@@ -731,107 +731,70 @@ Wikipedia says
 
 Taking our employees example from above. Here we have different employee types
 
-```php
-
-interface Employee {
-    public function __construct(string $name, float $salary);
-    public function getName() : string;
-    public function setSalary(float $salary);
-    public function getSalary() : float;
-    public function getRoles()  : array;
+```csharp
+interface IEmployee
+{
+    string Name { get; }
+    float Salary { get; set; }
+    IEmployee[] Roles  { get; }
 }
 
-class Developer implements Employee {
+class Developer : IEmployee
+{
+    public float Salary { get; set; }
+    public string Name { get; }
+    public IEmployee[] Roles  { get; }
 
-    protected $salary;
-    protected $name;
-
-    public function __construct(string $name, float $salary) {
-        $this->name = $name;
-        $this->salary = $salary;
-    }
-
-    public function getName() : string {
-        return $this->name;
-    }
-
-    public function setSalary(float $salary) {
-        $this->salary = $salary;
-    }
-
-    public function getSalary() : float {
-        return $this->salary;
-    }
-
-    public function getRoles() : array {
-        return $this->roles;
+    public Developer(string name, float salary)
+    {
+        Name = name;
+        Salary = salary;
     }
 }
 
-class Designer implements Employee {
+class Designer : IEmployee
+{
+    public float Salary { get; set; }
+    public string Name { get; }
+    public IEmployee[] Roles  { get; }
 
-    protected $salary;
-    protected $name;
-
-    public function __construct(string $name, float $salary) {
-        $this->name = $name;
-        $this->salary = $salary;
-    }
-
-    public function getName() : string {
-        return $this->name;
-    }
-
-    public function setSalary(float $salary) {
-        $this->salary = $salary;
-    }
-
-    public function getSalary() : float {
-        return $this->salary;
-    }
-
-    public function getRoles() : array {
-        return $this->roles;
+    public Designer(string name, float salary)
+    {
+        Name = name;
+        Salary = salary;
     }
 }
 ```
 
 Then we have an organization which consists of several different types of employees
 
-```php
-class Organization {
-    
-    protected $employees;
+```csharp
+class Organization
+{
+    private IList<IEmployee> Employees { get; } = new List<IEmployee>();
 
-    public function addEmployee(Employee $employee) {
-        $this->employees[] = $employee;
+    public void AddEmployee(IEmployee employee)
+    {
+        Employees.Add(employee);
     }
 
-    public function getNetSalaries() : float {
-        $netSalary = 0;
-
-        foreach ($this->employees as $employee) {
-            $netSalary += $employee->getSalary();
-        }
-
-        return $netSalary;
-    }
+    public float GetNetSalaries() => Employees.Sum(employee => employee.Salary);
 }
 ```
 
 And then it can be used as
 
-```php
+```csharp
 // Prepare the employees
-$john = new Developer('John Doe', 12000);
-$jane = new Designer('Jane', 10000);
+var john = new Developer("John Doe", 12000);
+var jane = new Designer("Jane", 10000);
 
 // Add them to organization
-$organization = new Organization();
-$organization->addEmployee($john);
-$organization->addEmployee($jane);
+var organization = new Organization();
+organization.AddEmployee(john);
+organization-.AddEmployee(jane);
 
-echo "Net salaries: " . $organization->getNetSalaries(); // Net Salaries: 22000
+Console.WriteLine("Net salaries: " + organization.GetNetSalaries()); // Net Salaries: 22000
 ```
 
 ☕ Decorator
