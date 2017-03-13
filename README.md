@@ -1105,11 +1105,11 @@ class Security
     public void Open(string password)
     {
         if (Authenticate(password))
-	{
+        {
             Door.Open();
         }
-	else
-	{
+        else
+        {
             Console.WriteLine("Big no! It ain't possible.");
         }
     }
