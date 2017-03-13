@@ -992,60 +992,66 @@ Wikipedia says
 **Programmatic example**
 Translating our tea example from above. First of all we have tea types and tea maker
 
-```php
+```csharp
 // Anything that will be cached is flyweight. 
 // Types of tea here will be flyweights.
-class KarakTea {
+class KarakTea
+{
 }
 
 // Acts as a factory and saves the tea
-class TeaMaker {
-    protected $availableTea = [];
+class TeaMaker
+{
+    protected Dictionary<string, KarakTea> AvailableTea = new Dictionary<string, KarakTea>();
 
-    public function make($preference) {
-        if (empty($this->availableTea[$preference])) {
-            $this->availableTea[$preference] = new KarakTea();
+    public KarakTea Make(string preference)
+    {
+        if (!AvailableTea.Keys.Contains(preference))
+	{
+            AvailableTea.Add(preference, new KarakTea());
         }
 
-        return $this->availableTea[$preference];
+        return AvailableTea[preference];
     }
 }
 ```
-
 Then we have the `TeaShop` which takes orders and serves them
+```csharp
+class TeaShop
+{    
+    protected Dictionary<int, KarakTea> Orders = new Dictionary<int, KarakTea>();
+    protected TeaMaker TeaMaker;
 
-```php
-class TeaShop {
-    
-    protected $orders;
-    protected $teaMaker;
-
-    public function __construct(TeaMaker $teaMaker) {
-        $this->teaMaker = $teaMaker;
+    public TeaShop(TeaMaker teaMaker)
+    {
+        TeaMaker = teaMaker;
     }
 
-    public function takeOrder(string $teaType, int $table) {
-        $this->orders[$table] = $this->teaMaker->make($teaType);
+    public void TakeOrder(string teaType, int table)
+    {
+        Orders[table] = TeaMaker.Make(teaType);
     }
 
-    public function serve() {
-        foreach($this->orders as $table => $tea) {
-            echo "Serving tea to table# " . $table;
+    public void Serve()
+    {
+        foreach(var table in Orders.Select(order => order.Key))
+        {
+            Console.WriteLine("Serving tea to table# " + table);
         }
     }
 }
 ```
 And it can be used as below
 
-```php
-$teaMaker = new TeaMaker();
-$shop = new TeaShop($teaMaker);
+```csharp
+var teaMaker = new TeaMaker();
+var shop = new TeaShop(teaMaker);
 
-$shop->takeOrder('less sugar', 1);
-$shop->takeOrder('more milk', 2);
-$shop->takeOrder('without sugar', 5);
+shop.TakeOrder("less sugar", 1);
+shop.TakeOrder("more milk", 2);
+shop.TakeOrder("without sugar", 5);
 
-$shop->serve();
+shop.Serve();
 // Serving tea to table# 1
 // Serving tea to table# 2
 // Serving tea to table# 5
