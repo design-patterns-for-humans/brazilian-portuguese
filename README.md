@@ -1071,55 +1071,67 @@ Wikipedia says
 **Programmatic Example**
 Taking our security door example from above. Firstly we have the door interface and an implementation of door
 
-```php
-interface Door {
-    public function open();
-    public function close();
+```csharp
+interface IDoor
+{
+    void Open();
+    void Close();
 }
 
-class LabDoor implements Door {
-    public function open() {
-        echo "Opening lab door";
+class LabDoor : IDoor
+{
+    public void Open()
+    {
+        Console.WriteLine("Opening lab door");
     }
 
-    public function close() {
-        echo "Closing the lab door";
+    public void Close()
+    {
+        Console.WriteLine("Closing the lab door");
     }
 }
 ```
 Then we have a proxy to secure any doors that we want
-```php
-class Security {
-    protected $door;
+```csharp
+class Security
+{
+    protected IDoor Door;
 
-    public function __construct(Door $door) {
-        $this->door = $door;
+    public Security(IDoor door)
+    {
+        Door = door;
     }
 
-    public function open($password) {
-        if ($this->authenticate($password)) {
-            $this->door->open();
-        } else {
-        	echo "Big no! It ain't possible.";
+    public void Open(string password)
+    {
+        if (Authenticate(password))
+	{
+            Door.Open();
+        }
+	else
+	{
+            Console.WriteLine("Big no! It ain't possible.");
         }
     }
 
-    public function authenticate($password) {
-        return $password === '$ecr@t';
+    public bool Authenticate(string password)
+    {
+        return password == "$ecr@t";
     }
 
-    public function close() {
-        $this->door->close();
+    public void Close()
+    {
+        Door.Close();
     }
 }
 ```
 And here is how it can be used
-```php
-$door = new Security(new LabDoor());
-$door->open('invalid'); // Big no! It ain't possible.
+```csharp
+var door = new Security(new LabDoor());
+door.Open("invalid"); // Big no! It ain't possible.
 
-$door->open('$ecr@t'); // Opening lab door
-$door->close(); // Closing lab door
+door.Open("$ecr@t"); // Opening lab door
+door.Close(); // Closing lab door
 ```
 Yet another example would be some sort of data-mapper implementation. For example, I recently made an ODM (Object Data Mapper) for MongoDB using this pattern where I wrote a proxy around mongo classes while utilizing the magic method `__call()`. All the method calls were proxied to the original mongo class and result retrieved was returned as it is but in case of `find` or `findOne` data was mapped to the required class objects and the object was returned instead of `Cursor`.
 
