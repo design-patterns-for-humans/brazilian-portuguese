@@ -7,7 +7,7 @@
 
 <p align="center">
 Um assunto capaz de dar um nó na cabeça de qualquer um. Aqui eu tento fazê-los 
-grudar na sua cabeça (e quem sabe na minha) explicando da maneira mais <i>simples</i>
+grudar na sua cabeça (e quem sabe na minha) explicando da maneira mais <i>simples</i>.
 </p>
 
 ***
@@ -19,7 +19,7 @@ Design patters são soluções para problemas recorrentes; **guias de como ataca
 Não são classes, pacotes nem bibliotecas que você bota na aplicação e espera a mágica acontecer.
 Na realidade, são guias de como atacas certos problemas em certas situações.
 
-> Design patterns solucionam problemas recorrentes; guias de como atacar certos problemas
+> Design patterns solucionam problemas recorrentes; guias de como atacar certos problemas.
 
 A Wikipedia os descreve como
 
@@ -46,14 +46,20 @@ Types of Design Patterns
 * [Comportamentais](#behavioral-design-patterns)
 
 
-Creational Design Patterns
+Design Patterns de Criação
 ==========================
 
-In plain words
-> Creational patterns are focused towards how to instantiate an object or group of related objects.
+Resumindo
+> Padrões de criação focam em como instanciar um objeto ou grupo de objetos afins.
 
-Wikipedia says
-> In software engineering, creational design patterns are design patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. The basic form of object creation could result in design problems or added complexity to the design. Creational design patterns solve this problem by somehow controlling this object creation.
+A Wikipedia diz
+> Em engenharia de software, design patterns de criação são  padrões que lidam
+com os mecanismos de criação de objetos, tentando criar os objetos de maneira
+adequada àquela situação.
+A forma basica de criação de objetos poderiam resultar em problemas de design
+ou adicionar complexidade ao design.
+Design patterns de criação resolvem este problema controlando a criação de objetos
+de alguma forma.
  
  * [Simple Factory](#-simple-factory)
  * [Factory Method](#-factory-method)
@@ -538,14 +544,20 @@ var president2 = President.Instance;
 Console.WriteLine(President1 == President2); // true
 ```
 
-Structural Design Patterns
+Design Patterns Estruturais
 ==========================
-In plain words
-> Structural patterns are mostly concerned with object composition or in other words how the entities can use each other. Or yet another explanation would be, they help in answering "How to build a software component?"
 
-Wikipedia says
-> In software engineering, structural design patterns are design patterns that ease the design by identifying a simple way to realize relationships between entities.
-  
+Resumindo
+> Padrões estruturais basicamente se preocupam com a composição de objetos
+ou em outras palavras como entidades usam umas às outras.
+Ou ainda outra explicação seria como elas ajudam a responder "Como construir
+um componente de software?".
+
+A Wikipedia diz
+> Em engenharia de software, design patterns estruturais são padrões que facilitam
+o design através da identificação de uma maneira simples de construir as relações entre as
+entidades.
+
  * [Adapter](#-adapter)
  * [Bridge](#-bridge)
  * [Composite](#-composite)
@@ -1147,14 +1159,19 @@ door.Close(); // Closing lab door
 ```
 Yet another example would be some sort of data-mapper implementation. For example, I recently made an ODM (Object Data Mapper) for MongoDB using this pattern where I wrote a proxy around mongo classes while utilizing the magic method `__call()`. All the method calls were proxied to the original mongo class and result retrieved was returned as it is but in case of `find` or `findOne` data was mapped to the required class objects and the object was returned instead of `Cursor`.
 
-Behavioral Design Patterns
+Design Patterns Comportamentais
 ==========================
 
-In plain words
-> It is concerned with assignment of responsibilities between the objects. What makes them different from structural patterns is they don't just specify the structure but also outline the patterns for message passing/communication between them. Or in other words, they assist in answering "How to run a behavior in software component?"
+Resumindo
+> Está preocupado com a atribuição de responsabilidades entre os objetos.
+O que diferencia com os padrões estruturais é que eles não especificam somente
+a estrutura, mas também traçam os padrões para as passagem/comunicação de mensagens entre eles.
+Em outras palavras, eles ajudam a responder "Como rodar um comportamento no componente de software?".
 
-Wikipedia says
-> In software engineering, behavioral design patterns are design patterns that identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication.
+A Wikipedia diz
+> Em engenharia de software, design patterns comportamentais são padrões que 
+identificam padrões comuns de comunicação entre os objetos e concretizam este padrão.
+Desta forma, estes padrões aumentam a flexibilidade em executar estas comunicações.
 
 * [Chain of Responsibility](#-chain-of-responsibility)
 * [Command](#-command)
