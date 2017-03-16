@@ -71,9 +71,9 @@ de alguma forma.
 🏠 Simple Factory
 --------------
 Exemplo do mundo real
-> Considere, você está construindo uma casa e você precisa de portas. Seria uma bagunça se cada vez que você precisar de uma porta, você colocar em suas roupas de carpinteiro e começar a fazer uma porta em sua casa. Em vez disso você obtém feito de uma fábrica.
+> Considere, você está construindo uma casa e você precisa de portas. Seria uma bagunça se cada vez que você precisar de uma porta, você colocar em suas roupas de carpinteiro e começar a fazer uma porta em sua casa. Em vez disso você o obtém feito de uma fábrica.
 
-Em palavras simples
+Resumindo
 > Simple factory simplesmente gera uma instância para o cliente sem expor qualquer lógica de instanciação para o cliente.
 
 Wikipedia diz
@@ -128,7 +128,7 @@ Ao criar um objeto não é apenas algumas atribuições e envolve alguma lógica
 Exemplo do mundo real
 > Considere o caso de um gerente de contratação. É impossível para uma pessoa entrevistar para cada uma das posições. Com base na abertura do trabalho, ela tem que decidir e delegar as etapas da entrevista para diferentes pessoas.
 
-Em palavras simples
+Resumindo
 > Ele fornece uma maneira de delegar a lógica de instanciação a classe filho.
 
 Wikipedia diz
@@ -206,7 +206,7 @@ marketingManager.TakeInterview(); // Output: Asking about community building.
 
 **Quando usar?**
 
-Útil quando há algum processamento genérico em uma classe, mas a sub-classe necessária é dinamicamente decidida em tempo de execução. Ou colocando em outras palavras, quando o cliente não sabe o exato momento que precisará da sub-classe.
+Útil quando há algum processamento genérico em uma classe, mas a sub-classe necessária é dinamicamente decidida em tempo de execução. Ou colocando em outras palavras, quando o cliente não sabe qual sub-classe exatamente precisará.
 
 🔨 Abstract Factory
 ----------------
