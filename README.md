@@ -70,18 +70,18 @@ de alguma forma.
  
 🏠 Simple Factory
 --------------
-Real world example
-> Consider, you are building a house and you need doors. It would be a mess if every time you need a door, you put on your carpenter clothes and start making a door in your house. Instead you get it made from a factory.
+Exemplo do mundo real
+> Considere, você está construindo uma casa e você precisa de portas. Seria uma bagunça se cada vez que você precisar de uma porta, você colocar em suas roupas de carpinteiro e começar a fazer uma porta em sua casa. Em vez disso você o obtém feito de uma fábrica.
 
-In plain words
-> Simple factory simply generates an instance for client without exposing any instantiation logic to the client
+Resumindo
+> Simple factory simplesmente gera uma instância para o cliente sem expor qualquer lógica de instanciação para o cliente.
 
-Wikipedia says
-> In object-oriented programming (OOP), a factory is an object for creating other objects – formally a factory is a function or method that returns objects of a varying prototype or class from some method call, which is assumed to be "new".
+Wikipedia diz
+> Na programação orientada a objetos (OOP), uma factory é um objeto para criar outros objetos - formalmente, uma factory é uma função ou método que retorna objetos de um protótipo ou classe variável de alguma chamada de método, que é assumida como "new".
 
 **Programmatic Example**
 
-First of all we have a door interface and the implementation
+Primeiro, temos uma interface de porta e uma implementação
 ```csharp
 public interface IDoor
 {
@@ -101,7 +101,7 @@ public class WoodenDoor : IDoor
     }
 }
 ```
-Then we have our door factory that makes the door and returns it
+Então nós temos nossa factory de porta, que faz a porta e retorna-a
 ```csharp
 class DoorFactory
 {
@@ -111,32 +111,32 @@ class DoorFactory
    }
 }
 ```
-And then it can be used as
+E então ele pode ser usado como
 ```csharp
 var door = DoorFactory.makeDoor(100, 200);
 Console.WriteLine("Width: " + door.Width);
 Console.WriteLine("Height: " + door.Height);
 ```
 
-**When to Use?**
+**Quando usar?**
 
-When creating an object is not just a few assignments and involves some logic, it makes sense to put it in a dedicated factory instead of repeating the same code everywhere. 
+Ao criar um objeto não é apenas algumas atribuições e envolve alguma lógica, faz sentido colocá-lo em uma factory dedicada em vez de repetir o mesmo código em todos os lugares.
 
 🏭 Factory Method
 --------------
 
-Real world example
-> Consider the case of a hiring manager. It is impossible for one person to interview for each of the positions. Based on the job opening, she has to decide and delegate the interview steps to different people. 
+Exemplo do mundo real
+> Considere o caso de um gerente de contratação. É impossível para uma pessoa entrevistar para cada uma das posições. Com base na abertura do trabalho, ela tem que decidir e delegar as etapas da entrevista para diferentes pessoas.
 
-In plain words
-> It provides a way to delegate the instantiation logic to child classes. 
+Resumindo
+> Ele fornece uma maneira de delegar a lógica de instanciação a classe filho.
 
-Wikipedia says
-> In class-based programming, the factory method pattern is a creational pattern that uses factory methods to deal with the problem of creating objects without having to specify the exact class of the object that will be created. This is done by creating objects by calling a factory method—either specified in an interface and implemented by child classes, or implemented in a base class and optionally overridden by derived classes—rather than by calling a constructor.
+Wikipedia diz
+> Na programação baseada em classes, o padrão de método de factory é um padrão de criação que usa métodos de factory para lidar com o problema de criação de objetos sem precisar especificar a classe exata do objeto que será criado. Isso é feito criando objetos chamando um método de factory - ou especificado em uma interface e implementado por classe filho, ou implementado em uma classe base e opcionalmente substituído por classes derivadas - em vez de chamar um construtor.
  
  **Programmatic Example**
  
-Taking our hiring manager example above. First of all we have an interviewer interface and some implementations for it
+Tomando o nosso exemplo de gerente de contratação acima. Primeiro de tudo, temos uma interface de entrevistador e algumas implementações para ele
 
 ```csharp
 interface IInterviewer
@@ -161,7 +161,7 @@ class CommunityExecutive : IInterviewer
 }
 ```
 
-Now let us create our `HiringManager`
+Agora vamos criar o nosso HiringManager `HiringManager`
 
 ```csharp
 abstract class HiringManager
@@ -176,7 +176,7 @@ abstract class HiringManager
     }
 }
 ```
-Now any child can extend it and provide the required interviewer
+Agora, qualquer filho pode estendê-lo e fornecer o entrevistador necessário
 ```csharp
 class DevelopmentManager : HiringManager
 {
@@ -194,7 +194,7 @@ class MarketingManager : HiringManager
     }
 }
 ```
-and then it can be used as
+E então ele pode ser usado como
 
 ```csharp
 var devManager = new DevelopmentManager();
@@ -204,9 +204,9 @@ var marketingManager = new MarketingManager();
 marketingManager.TakeInterview(); // Output: Asking about community building.
 ```
 
-**When to use?**
+**Quando usar?**
 
-Useful when there is some generic processing in a class but the required sub-class is dynamically decided at runtime. Or putting it in other words, when the client doesn't know what exact sub-class it might need.
+Útil quando há algum processamento genérico em uma classe, mas a sub-classe necessária é dinamicamente decidida em tempo de execução. Ou colocando em outras palavras, quando o cliente não sabe qual sub-classe exatamente precisará.
 
 🔨 Abstract Factory
 ----------------
