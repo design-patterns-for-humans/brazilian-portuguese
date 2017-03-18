@@ -2072,12 +2072,13 @@ $iosBuilder->build();
 
 And that about wraps it up. I will continue to improve this, so you might want to watch/star this repository to revisit. Also, I have plans on writing the same about the architectural patterns, stay tuned for it.
 
-## 👬 Contribution
+## 👬 Contribuição
+- Reporte issues
+- Abra um pull request com melhorias
+- Espelhe aos amigos
 
-- Report issues
-- Open pull request with improvements
-- Spread the word
-- Reach out to me directly at kamranahmed.se@gmail.com or [@kamranahmedse](http://twitter.com/kamranahmedse)
+Este repositório foi do inglês traduzido [daqui](https://github.com/kamranahmedse/design-patterns-for-humans)
+e você pode encontrar o autor original em kamranahmed.se@gmail.com ou [@kamranahmedse](http://twitter.com/kamranahmedse)
 
-## License
+## Licensa
 MIT © [Kamran Ahmed](http://kamranahmed.info)
