@@ -442,20 +442,26 @@ When there could be several flavors of an object and to avoid the constructor te
 
 🐑 Prototype
 ------------
-Real world example
-> Remember dolly? The sheep that was cloned! Lets not get into the details but the key point here is that it is all about cloning
+Exemplo do mundo real
 
-In plain words
-> Create object based on an existing object through cloning.
+> Lembra da dolly? A ovelha que foi clonada! Não vamos entrar nos detalhes mas o ponto chave aqui é que é tudo sobre
+clonagem.
 
-Wikipedia says
-> The prototype pattern is a creational design pattern in software development. It is used when the type of objects to create is determined by a prototypical instance, which is cloned to produce new objects.
+Resumindo
+> Criar objetos baseado num existente através de clonagem.
 
-In short, it allows you to create a copy of an existing object and modify it to your needs, instead of going through the trouble of creating an object from scratch and setting it up.
 
-**Programmatic Example**
+Wikipedia diz
+> O padrão prototype é um padrão criacional no desenvolvimento de software.
+Ele é utilizado quando o tipo do objeto a ser criado é determinada por uma instancia prototipada, a qual é clonada
+para produzir novos objetos.
 
-In C#, it can be easily done using `ICloneable`
+Ou seja, ela te permite criar uma cópia de um objeto existente e modificá-lo de acordo com suas necessidades,
+ao invés de ter que passar por toda dificuldade de criar um objeto do zero e configurá-lo.
+
+**Exemplo programático**
+
+Em C#, isto pode ser facilmente feito utilizando `ICloneable`
   
 ```csharp
 class Sheep : ICloneable
@@ -475,9 +481,9 @@ class Sheep : ICloneable
     }
 }
 ```
-Then it can be cloned like below
+Então ele pode ser clonado assim
 ```csharp
-var original = new Sheep('Jolly');
+var original = new Sheep('Jolly', 'Mountain Sheep');
 Console.WriteLine(original.Name); // Jolly
 Console.WriteLine(original.Category); // Mountain Sheep
 
@@ -488,11 +494,13 @@ Console.WriteLine(cloned.Name); // Dolly
 Console.WriteLine(cloned.Category); // Mountain Sheep
 ```
 
-Also you could use the magic method `Clone` to modify the cloning behavior.
+Você também poderia utilizar o método mágico `Clone` e modificar o comportamente de clonagem.
 
-**When to use?**
+**Quando utilizar?**
 
-When an object is required that is similar to existing object or when the creation would be expensive as compared to cloning.
+Quando um objeto requer que seja similar a um objeto similar existente ou quando a criação seria cara demais
+se comparada com a clonagem.
+
 
 💍 Singleton
 ------------
