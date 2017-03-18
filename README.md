@@ -211,18 +211,26 @@ marketingManager.TakeInterview(); // Output: Asking about community building.
 🔨 Abstract Factory
 ----------------
 
-Real world example
-> Extending our door example from Simple Factory. Based on your needs you might get a wooden door from a wooden door shop, iron door from an iron shop or a PVC door from the relevant shop. Plus you might need a guy with different kind of specialities to fit the door, for example a carpenter for wooden door, welder for iron door etc. As you can see there is a dependency between the doors now, wooden door needs carpenter, iron door needs a welder etc.
+Exemplo do mundo real
+> Estendendo nosso exemplo de porta do Simple Factory.
+Baseado em nossas necessidades podemos precisar de uma porta de madeira, de uma loja de portas de madeiras,
+uma porta de aço de uma loja de ferro ou uma porta de PVC de uma loja de materiais de construção.
+Você também pode precisar de um cara com diferentes tipos de especialidades para colocar a porta, 
+por exemplo um carpinteiro para a porta de madeira, um soldador para a porta de ferro, etc.
+Como você pode notar, tem uma dependência entre portas agora. Porta de madeira precisa de um carpinteiro,
+porta de ferro precisa de um soldador, etc.
 
-In plain words
-> A factory of factories; a factory that groups the individual but related/dependent factories together without specifying their concrete classes. 
+Resumindo
+> Uma fábrica de fábricas; uma fábrica que agrupa fábricas individuais mas relacionadas/dependentes, 
+sem especificar suas classes concretas.
   
-Wikipedia says
-> The abstract factory pattern provides a way to encapsulate a group of individual factories that have a common theme without specifying their concrete classes
+A Wikipedia diz
+> O Padrão Abstract Factory provê uma maneira de encapsular um grupo de fábricas individuais que têm um tema em
+comum, sem especificar suas classes concretas.
 
-**Programmatic Example**
+**Exemplo Programático**
 
-Translating the door example above. First of all we have our `Door` interface and some implementation for it
+Traduzindo o exemplo de porta acima. Primeiramente temos nossa interface `Door` e algumas implementações para ela.
 
 ```csharp
 interface IDoor
@@ -246,7 +254,7 @@ class IronDoor : IDoor
     }
 }
 ```
-Then we have some fitting experts for each door type
+Então temos alguns especialistas para colocar cada tipo de porta
 
 ```csharp
 interface IDoorFittingExpert
@@ -270,8 +278,9 @@ class Carpenter : IDoorFittingExpert
     }
 }
 ```
-
-Now we have our abstract factory that would let us make family of related objects i.e. wooden door factory would create a wooden door and wooden door fitting expert and iron door factory would create an iron door and iron door fitting expert
+Agora temos nossa abstract factory que nos permite fazer uma familia de objetos relacionados, isto é, 
+a fábrica para porta de madeira cria uma porta de madeira e um especialista para colocar a porta de madeira,
+a fábrica para porta de ferro cria uma porta de ferro e um especialista para colocar a porta de ferro.
 ```csharp
 interface IDoorFactory
 {
@@ -307,7 +316,7 @@ class IronDoorFactory : IDoorFactory
     }
 }
 ```
-And then it can be used as
+E então isto pode ser utilizado da seguinte forma:
 ```csharp
 var woodenFactory = new WoodenDoorFactory();
 
@@ -327,11 +336,13 @@ door.GetDescription();  // Output: I am an iron door
 expert.GetDescription(); // Output: I can only fit iron doors
 ```
 
-As you can see the wooden door factory has encapsulated the `carpenter` and the `wooden door` also iron door factory has encapsulated the `iron door` and `welder`. And thus it had helped us make sure that for each of the created door, we do not get a wrong fitting expert.   
+Como você pode perceber a fábrica para porta de madeira encapsulou o `carpenter` (carpinteiro) e a `wooden door` 
+(a porta de madeira) e também a fábrica de porta de ferro encapsulou a `iron door` (porta de ferro) e o `welder` (soldador). 
+E portanto nos ajudou a garantir que para cada uma das portas criadas, nos não teríamos o especialista errado para colocá-la.
 
-**When to use?**
+**Quando utilizar?**
 
-When there are interrelated dependencies with not-that-simple creation logic involved
+Quando houverem dependências inter-relacionadas com uma lógica criacional não tão simples envolvida.
 
 👷 Builder
 --------------------------------------------
