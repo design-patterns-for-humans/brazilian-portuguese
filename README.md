@@ -335,16 +335,25 @@ When there are interrelated dependencies with not-that-simple creation logic inv
 
 👷 Builder
 --------------------------------------------
-Real world example
-> Imagine you are at Hardee's and you order a specific deal, lets say, "Big Hardee" and they hand it over to you without *any questions*; this is the example of simple factory. But there are cases when the creation logic might involve more steps. For example you want a customized Subway deal, you have several options in how your burger is made e.g what bread do you want? what types of sauces would you like? What cheese would you want? etc. In such cases builder pattern comes to the rescue.
+Exemplo do mundo real
+> Imagine que você está no McDonald's e pede uma oferta em específico, diríamos, "Big Mac" e eles te entregam o 
+sanduíche *sem nenhuma pergunta*; isto é um exemplo de uma simples fábrica.
+Mas existem alguns casos em que a lógica de criação pode envolver mais passos.
+Por exemplo, você quer uma oferta do Subway personalizada, você tem várias opções em como seu sanduíche é feito,
+por exemplo, que pão você quer? Quais tipos de molho você quer? Qual queijo? etc.
+Nesses casos o padrão builder vem ao resgate.
 
-In plain words
-> Allows you to create different flavors of an object while avoiding constructor pollution. Useful when there could be several flavors of an object. Or when there are a lot of steps involved in creation of an object.
- 
-Wikipedia says
-> The builder pattern is an object creation software design pattern with the intentions of finding a solution to the telescoping constructor anti-pattern.
+Resumindo
+> Permite que você crie diferentes variedades de um objeto enquanto evita poluição do construtor.
+Útil quando poderia haver diversas variedades de um objeto.
+Ou quando há muitos passos envolvida na criação de um objeto.
 
-Having said that let me add a bit about what telescoping constructor anti-pattern is. At one point or the other we have all seen a constructor like below:
+Wikipedia diz
+> O padrão Builder é um design pattern de criação com a intenção de encontrar a solução 
+anti-pattern "constructor telescoping".
+
+Tendo dito isto, permita-me adicionar um pouco sobre o que é o anti-pattern "tesleslcoping constructor".
+Em um momento ou outro todos nós já vimos um construtor como este abaixo:
  
 ```csharp
 public Burger(size, cheese = true, pepperoni = true, tomato = false, lettuce = true)
@@ -352,11 +361,14 @@ public Burger(size, cheese = true, pepperoni = true, tomato = false, lettuce = t
 }
 ```
 
-As you can see; the number of constructor parameters can quickly get out of hand and it might become difficult to understand the arrangement of parameters. Plus this parameter list could keep on growing if you would want to add more options in future. This is called telescoping constructor anti-pattern.
+Como você pode notar; o número de parâmetros do construtor pode sair de controle rapidamente e pode ficar
+complicado entender a ordem dos parâmetros. E mais, esta lista de parâmetros poderia continuar crescendo caso
+queira adicionar mais opções no futuro. Isto é chamado de anti-pattern "telescoping constructor".
 
-**Programmatic Example**
 
-The sane alternative is to use the builder pattern. First of all we have our burger that we want to make
+**Exemplo Programático**
+
+A alternativa sensata é utilizar o padrão Builder. Antes de mais nada temos o sanduíche que queremos fazer
 
 ```csharp
 class Burger
@@ -379,7 +391,8 @@ class Burger
 }
 ```
 
-And then we have the builder
+E então temos o builder
+
 
 ```csharp
 class BurgerBuilder
@@ -426,7 +439,7 @@ class BurgerBuilder
     }
 }
 ```
-And then it can be used as:
+E então pode ser utilizado como:
 
 ```csharp
 var burger = new BurgerBuilder(14)
@@ -436,9 +449,11 @@ var burger = new BurgerBuilder(14)
 		.Build();
 ```
 
-**When to use?**
+**Quando utilizar?**
 
-When there could be several flavors of an object and to avoid the constructor telescoping. The key difference from the factory pattern is that; factory pattern is to be used when the creation is a one step process while builder pattern is to be used when the creation is a multi step process.
+Quando poderia haver diversas variedades de um objeto e para evitar "constructor telescoping".
+A diferença chave para o padrão factory é que; o padrão factory é utilizado quando o processo de criação é feito num 
+único passo, enquanto o padrão builder é utilizado quando a criação é um processo que envolvem vários passos.
 
 🐑 Prototype
 ------------
