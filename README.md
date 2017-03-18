@@ -15,7 +15,7 @@ grudar na sua cabeça (e quem sabe na minha) explicando da maneira mais <i>simpl
 :rocket: Introdução
 =================
 
-Design patters são soluções para problemas recorrentes; **guias de como atacar certos problemas**.
+Design patterns são soluções para problemas recorrentes; **guias de como atacar certos problemas**.
 Não são classes, pacotes nem bibliotecas que você bota na aplicação e espera a mágica acontecer.
 Na realidade, são guias de como atacas certos problemas em certas situações.
 
