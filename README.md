@@ -161,7 +161,7 @@ class CommunityExecutive : IInterviewer
 }
 ```
 
-Agora vamos criar o nosso HiringManager `HiringManager`
+Agora vamos criar o nosso `HiringManager`
 
 ```csharp
 abstract class HiringManager
