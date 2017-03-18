@@ -496,20 +496,27 @@ When an object is required that is similar to existing object or when the creati
 
 💍 Singleton
 ------------
-Real world example
-> There can only be one president of a country at a time. The same president has to be brought to action, whenever duty calls. President here is singleton.
+Exemplo do mundo real
+> Só pode haver um presidente de um pais por vez. O mesmo presidente entra em ação quando o dever chama.
+Presidente aqui é um singleton.
 
-In plain words
-> Ensures that only one object of a particular class is ever created.
+Resumindo
+> Garante que apenas um objeto de uma determinada classe será criado.
 
-Wikipedia says
-> In software engineering, the singleton pattern is a software design pattern that restricts the instantiation of a class to one object. This is useful when exactly one object is needed to coordinate actions across the system.
+Wikpedia diz
+> Em engenharia de software, o padrão singleton é um padrão de projeto que restringe a instanciação de uma classe
+para um único objeto. Isto é útil quando exatamente um objeto é necessário para coordenar ações por todo o sistema.
 
-Singleton pattern is actually considered an anti-pattern and overuse of it should be avoided. It is not necessarily bad and could have some valid use-cases but should be used with caution because it introduces a global state in your application and change to it in one place could affect in the other areas and it could become pretty difficult to debug. The other bad thing about them is it makes your code tightly coupled plus it mocking the singleton could be difficult.
+O padrão singleton na realidade é considerado um anti-pattern e deve-se evitar usá-lo demais.
+Não é necessariamente ruim e pode haver alguns casos válidos mas deve ser utilizado com cuiidado pois introduz
+um estado global à sua aplicação e mudanças em um lugar pode ocasionar efeitos em outras areas e pode acabar
+se tornando bem difícil de debugar.
+A outra coisa ruim sobre ele é que torna seu código fortemente acoplado, em mais, mockar um singleton pode ser difícil.
 
-**Programmatic Example**
+**Exemplo Programático**
 
-To create a singleton, make the constructor private, disable cloning, disable extension and create a static variable to house the instance
+Para criar um singleton, faça o construtor privado, desabilite clonagem, desabilite extensão e crie uma variável estática para instancias de casa.
+
 ```csharp
 // Example taken from http://csharpindepth.com/Articles/General/Singleton.aspx
 // There is a lot of caveat. So read it!
@@ -536,7 +543,7 @@ public sealed class President
     }
 } 
 ```
-Then in order to use
+Então para utilizar
 ```csharp
 var president1 = President.Instance;
 var president2 = President.Instance;
