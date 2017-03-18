@@ -79,7 +79,7 @@ Resumindo
 Wikipedia diz
 > Na programação orientada a objetos (OOP), uma factory é um objeto para criar outros objetos - formalmente, uma factory é uma função ou método que retorna objetos de um protótipo ou classe variável de alguma chamada de método, que é assumida como "new".
 
-**Programmatic Example**
+**Exemplo Programático**
 
 Primeiro, temos uma interface de porta e uma implementação
 ```csharp
@@ -134,7 +134,7 @@ Resumindo
 Wikipedia diz
 > Na programação baseada em classes, o padrão de método de factory é um padrão de criação que usa métodos de factory para lidar com o problema de criação de objetos sem precisar especificar a classe exata do objeto que será criado. Isso é feito criando objetos chamando um método de factory - ou especificado em uma interface e implementado por classe filho, ou implementado em uma classe base e opcionalmente substituído por classes derivadas - em vez de chamar um construtor.
  
- **Programmatic Example**
+ **Exemplo Programático**
  
 Tomando o nosso exemplo de gerente de contratação acima. Primeiro de tudo, temos uma interface de entrevistador e algumas implementações para ele
 
