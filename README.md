@@ -568,22 +568,22 @@ entidades.
 
 🔌 Adapter
 -------
-Real world example
-> Consider that you have some pictures in your memory card and you need to transfer them to your computer. In order to transfer them you need some kind of adapter that is compatible with your computer ports so that you can attach memory card to your computer. In this case card reader is an adapter.
-> Another example would be the famous power adapter; a three legged plug can't be connected to a two pronged outlet, it needs to use a power adapter that makes it compatible with the two pronged outlet.
-> Yet another example would be a translator translating words spoken by one person to another
+Exemplo do mundo real
+> Considere que você tem algumas fotos em seu cartão de memória e que você precisa transferi-los para o seu computador. E para transferi-los você precisa de algum tipo de adaptador que seja compatível com as portas do computador. Neste caso o leitor de cartões é um adaptador.
+> Outro exemplo seria o famoso adaptador de alimentação; Um plugue de três pernas não pode ser conectado a uma saída de duas pontas, ele precisa usar um adaptador de energia que torna compatível com a saída de duas pontas.
+> Outro exemplo seria um tradutor traduzindo palavras ditas por uma pessoa a outra.
 
-In plain words
-> Adapter pattern lets you wrap an otherwise incompatible object in an adapter to make it compatible with another class.
+Resumindo
+> O padrão Adapter permite que você envolva um objeto incompatível em um adaptador para torná-lo compatível com outra classe.
 
-Wikipedia says
-> In software engineering, the adapter pattern is a software design pattern that allows the interface of an existing class to be used as another interface. It is often used to make existing classes work with others without modifying their source code.
+A Wikipidia diz
+> Na engenharia de software, o padrão do Adapter é um padrão de design de software que permite que a interface de uma classe existente seja usada como outra interface. É freqüentemente usado para fazer com que as classes existentes trabalhem com outras sem modificar seu código-fonte.
 
-**Programmatic Example**
+**Exemplo Programático**
 
-Consider a game where there is a hunter and he hunts lions.
+Considere um jogo onde há um caçador e ele caça leões.
 
-First we have an interface `Lion` that all types of lions have to implement
+Primeiro temos uma interface `Lion` que todos os tipos de leões têm que implementar.
 
 ```csharp
 interface ILion
@@ -601,7 +601,7 @@ class AsianLion : ILion
     public void Roar() {}
 }
 ```
-And hunter expects any implementation of `ILion` interface to hunt.
+E o caçador espera que qualquer implementação da interface `ILion` para caçar.
 ```csharp
 class Hunter
 {
@@ -611,16 +611,16 @@ class Hunter
 }
 ```
 
-Now let's say we have to add a `WildDog` in our game so that hunter can hunt that also. But we can't do that directly because dog has a different interface. To make it compatible for our hunter, we will have to create an adapter that is compatible
+Agora vamos dizer que temos de adicionar um `WildDog` no nosso jogo para que o caçador possa caçar isso também. Mas não podemos fazer isso diretamente porque o cão tem uma interface diferente. Para torná-lo compatível para o nosso caçador, vamos ter que criar um adaptador compatível.
  
 ```csharp
-// This needs to be added to the game
+// Isso precisa ser adicionado ao jogo
 class WildDog
 {
     public void Bark() {}
 }
 
-// Adapter around wild dog to make it compatible with our game
+// Adaptador em torno do cão selvagem para torná-lo compatível com o nosso jogo
 class WildDogAdapter : ILion
 {
     private Dog { get; set; }
@@ -636,7 +636,7 @@ class WildDogAdapter : ILion
     }
 }
 ```
-And now the `WildDog` can be used in our game using `WildDogAdapter`.
+E agora o `WildDog` pode ser usado em nosso jogo usando` WildDogAdapter`.
 
 ```csharp
 var wildDog = new WildDog();
