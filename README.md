@@ -648,20 +648,21 @@ hunter.Hunt(wildDogAdapter);
 
 🚡 Bridge
 ------
-Real world example
-> Consider you have a website with different pages and you are supposed to allow the user to change the theme. What would you do? Create multiple copies of each of the pages for each of the themes or would you just create separate theme and load them based on the user's preferences? Bridge pattern allows you to do the second i.e.
+Exemplo do mundo real
+> 
+Considere que você tem um site com páginas diferentes e supostamente o usuário pode alterar o tema. O que você faria? Criaria várias cópias de cada uma das páginas para cada um dos temas ou você apenas criaria o tema separado e carregar com base nas preferências do usuário? Bridge permite que você faça a segunda opção.
 
-![With and without the bridge pattern](https://cloud.githubusercontent.com/assets/11269635/23065293/33b7aea0-f515-11e6-983f-98823c9845ee.png)
+![Com e sem o Bridge](https://cloud.githubusercontent.com/assets/11269635/23065293/33b7aea0-f515-11e6-983f-98823c9845ee.png)
 
-In Plain Words
-> Bridge pattern is about preferring composition over inheritance. Implementation details are pushed from a hierarchy to another object with a separate hierarchy.
+Resumindo
+> Bridge pattern é sobre preferir a composição sobre herança. Detalhes de implementação são empurrados de uma hierarquia, para outro objeto com uma hierarquia separada.
 
-Wikipedia says
-> The bridge pattern is a design pattern used in software engineering that is meant to "decouple an abstraction from its implementation so that the two can vary independently"
+Wikipedia diz
+> O bridge é um padrão de projeto usado na engenharia de software que destina-se a "desacoplar uma abstração de sua implementação para que os dois possam variar independentemente".
 
-**Programmatic Example**
+**Exemplo Programático**
 
-Translating our WebPage example from above. Here we have the `IWebPage` hierarchy
+Traduzindo nosso exemplo de WebPage acima. Aqui temos a hierarquia `IWebPage`
 
 ```csharp
 interface IWebPage
@@ -699,7 +700,7 @@ class Careers : IWebPage
    } 
 }
 ```
-And the separate theme hierarchy
+E a hierarquia de tema separada
 ```csharp
 interface ITheme
 {
@@ -728,7 +729,7 @@ class AquaTheme : ITheme
     }
 }
 ```
-And both the hierarchies
+E ambas as hierarquias
 ```csharp
 var darkTheme = new DarkTheme();
 
