@@ -17,7 +17,7 @@ grudar na sua cabeça (e quem sabe na minha) explicando da maneira mais <i>simpl
 
 Design patterns são soluções para problemas recorrentes; **guias de como atacar certos problemas**.
 Não são classes, pacotes nem bibliotecas que você bota na aplicação e espera a mágica acontecer.
-Na realidade, são guias de como atacas certos problemas em certas situações.
+Na realidade, são guias de como atacar certos problemas em certas situações.
 
 > Design patterns solucionam problemas recorrentes; guias de como atacar certos problemas.
 
@@ -71,7 +71,7 @@ de alguma forma.
 🏠 Simple Factory
 --------------
 Exemplo do mundo real
-> Considere, você está construindo uma casa e você precisa de portas. Seria uma bagunça se cada vez que você precisar de uma porta, você colocar em suas roupas de carpinteiro e começar a fazer uma porta em sua casa. Em vez disso você o obtém feito de uma fábrica.
+> Considere que você está construindo uma casa e que precise de portas. Seria uma bagunça se cada vez que você precisar de uma porta, você tenha que colocar suas roupas de carpinteiro e começar a faze-la em sua casa. Em vez disso você o obtém feito de uma fábrica.
 
 Resumindo
 > Simple factory simplesmente gera uma instância para o cliente sem expor qualquer lógica de instanciação para o cliente.
