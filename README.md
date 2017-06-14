@@ -71,7 +71,7 @@ de alguma forma.
 🏠 Simple Factory
 --------------
 Exemplo do mundo real
-> Considere que você está construindo uma casa e que precise de portas. Seria uma bagunça se cada vez que você precisar de uma porta, você tenha que colocar suas roupas de carpinteiro e começar a faze-la em sua casa. Em vez disso você o obtém feito de uma fábrica.
+> Considere que você está construindo uma casa e que precise de portas. Seria uma bagunça se cada vez que você precisar de uma porta, você tenha que colocar suas roupas de carpinteiro e começar a cria-la em sua casa. Em vez disso você o obtém feito de uma fábrica.
 
 Resumindo
 > Simple factory simplesmente gera uma instância para o cliente sem expor qualquer lógica de instanciação para o cliente.
