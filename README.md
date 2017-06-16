@@ -211,8 +211,9 @@ marketingManager.TakeInterview(); // Output: Asking about community building.
 🔨 Abstract Factory
 ----------------
 
-Real world example
-> Extending our door example from Simple Factory. Based on your needs you might get a wooden door from a wooden door shop, iron door from an iron shop or a PVC door from the relevant shop. Plus you might need a guy with different kind of specialities to fit the door, for example a carpenter for wooden door, welder for iron door etc. As you can see there is a dependency between the doors now, wooden door needs carpenter, iron door needs a welder etc.
+Exemplo do mundo real
+> Extenderemos o nosso exemplo sobre portas, visto no Simple Factory. Baseado em sua necessidade você pode obter uma porta de madeira de uma loja que vende portas de madeira, umaporta de ferro de uma loja que vende portas de ferro ou uma porta de PVC, se for a uma loja que venda porta deste tipo. Além disto, você precisará de uma pessoa com tipos diferentes de especializações para preparar cada porta.Por exemplo;um carpinteiro para portas de madeira, soldador para portas de ferro e etc. Como pode perceber, existem dependências entre portas, portas de madeira com carpinteiros e portas de ferro com soldador.
+
 
 In plain words
 > A factory of factories; a factory that groups the individual but related/dependent factories together without specifying their concrete classes. 
