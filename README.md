@@ -222,9 +222,9 @@ Resumindo
 Wikipedia diz
 > O Abstract Factory Pattern provê uma maneira de encapsular um grupo de Factories que tem um tema em comum sem especificar suas classes concretas. 
 
-**Programmatic Example**
+ **Exemplo Programático**
 
-Translating the door example above. First of all we have our `Door` interface and some implementation for it
+Traduzindo o acima sobre as portas. Primeiro, temos nossa interface `Door` e algumas implementações dela.
 
 ```csharp
 interface IDoor
@@ -248,7 +248,7 @@ class IronDoor : IDoor
     }
 }
 ```
-Then we have some fitting experts for each door type
+Então, nós temos alguns especialistas em montagem para cada tipo de porta.
 
 ```csharp
 interface IDoorFittingExpert
@@ -272,8 +272,8 @@ class Carpenter : IDoorFittingExpert
     }
 }
 ```
+Agora, nós temos uma Factory abstrata que poderá nos deixa criar objetos relacionados a uma mesma família, por exemplo; uma Factory de portas de madeira criará uma porta de madeira e um especialista em montagem de portas de mandeira e a Factory de portas de metal criará uma porta de metal com um especialista em montagem de portas de metal.
 
-Now we have our abstract factory that would let us make family of related objects i.e. wooden door factory would create a wooden door and wooden door fitting expert and iron door factory would create an iron door and iron door fitting expert
 ```csharp
 interface IDoorFactory
 {
@@ -281,7 +281,7 @@ interface IDoorFactory
     IDoorFittingExpert MakeFittingExpert();
 }
 
-// Wooden factory to return carpenter and wooden door
+// Factory de portas de madeira retorna carpinteiro e porta de madeira
 class WoodenDoorFactory : IDoorFactory
 {
     public IDoor MakeDoor()
@@ -295,7 +295,7 @@ class WoodenDoorFactory : IDoorFactory
     }
 }
 
-// Iron door factory to get iron door and the relevant fitting expert
+// Factory de portas de ferro retornará porta de ferro e um soldador
 class IronDoorFactory : IDoorFactory
 {
     public IDoor MakeDoor()
@@ -309,7 +309,7 @@ class IronDoorFactory : IDoorFactory
     }
 }
 ```
-And then it can be used as
+E poderá ser usado desta maneira
 ```csharp
 var woodenFactory = new WoodenDoorFactory();
 
