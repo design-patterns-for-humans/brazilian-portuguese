@@ -329,11 +329,12 @@ door.GetDescription();  // Output: I am an iron door
 expert.GetDescription(); // Output: I can only fit iron doors
 ```
 
-As you can see the wooden door factory has encapsulated the `carpenter` and the `wooden door` also iron door factory has encapsulated the `iron door` and `welder`. And thus it had helped us make sure that for each of the created door, we do not get a wrong fitting expert.   
+Como pode reparar, a Factory de porta de madeira encapsula o `carpinteiro` e a `porta de madeira` e a Factory de porta de ferro encapsula o `soldador` e a `porta de ferro`. E com isto nos ajuda a ter certeza que para cada porta criada nós não tenhamos um especialista em montagem errado.
 
-**When to use?**
 
-When there are interrelated dependencies with not-that-simple creation logic involved
+**Quando usar?**
+
+Quado existir uma interralação de dependencia com uma lógica de criação não tão simples.
 
 👷 Builder
 --------------------------------------------
