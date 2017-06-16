@@ -215,8 +215,9 @@ Exemplo do mundo real
 > Extenderemos o nosso exemplo sobre portas, visto no Simple Factory. Baseado em sua necessidade você pode obter uma porta de madeira de uma loja que vende portas de madeira, umaporta de ferro de uma loja que vende portas de ferro ou uma porta de PVC, se for a uma loja que venda porta deste tipo. Além disto, você precisará de uma pessoa com tipos diferentes de especializações para preparar cada porta.Por exemplo;um carpinteiro para portas de madeira, soldador para portas de ferro e etc. Como pode perceber, existem dependências entre portas, portas de madeira com carpinteiros e portas de ferro com soldador.
 
 
-In plain words
-> A factory of factories; a factory that groups the individual but related/dependent factories together without specifying their concrete classes. 
+Resumindo
+> Uma Factory de Factorues; uma factory que agrupa outras factories com o seu relacionado/dependente sem especificar sua classe concreta.
+
   
 Wikipedia says
 > The abstract factory pattern provides a way to encapsulate a group of individual factories that have a common theme without specifying their concrete classes
