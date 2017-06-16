@@ -126,7 +126,7 @@ Ao criar um objeto não é apenas algumas atribuições e envolve alguma lógica
 --------------
 
 Exemplo do mundo real
-> Considere o caso de um gerente de contratação. É impossível para uma pessoa entrevistar para cada uma das posições. Com base na abertura do trabalho, ela tem que decidir e delegar as etapas da entrevista para diferentes pessoas.
+> Considere o caso de um gerente de contratação. É impossível para apenas uma pessoa entrevistar candidatos para cada uma das posições. Com base na abertura do trabalho, ela tem que decidir e delegar as etapas da entrevista para diferentes pessoas.
 
 Resumindo
 > Ele fornece uma maneira de delegar a lógica de instanciação a classe filho.
