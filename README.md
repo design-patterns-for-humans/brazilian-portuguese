@@ -748,8 +748,8 @@ Console.WriteLine(careers.GetContent()); // "Careers page in Dark Black";
 Exemplo do mundo real
 > Toda organização é composta por empregados. Cada um dos empregados possuirá as mesmas caracteristicas, tais como salário, possui responsabilidades, pode ou não ter que se reportar a algém ou pode ou não ter subordinados.
 
-In plain words
-> Composite pattern lets clients to treat the individual objects in a uniform manner.
+Resumindo
+> Composite Pattern deixa o cliente tratar objetos individuais de maneira uniforme.
 
 Wikipedia says
 > In software engineering, the composite pattern is a partitioning design pattern. The composite pattern describes that a group of objects is to be treated in the same way as a single instance of an object. The intent of a composite is to "compose" objects into tree structures to represent part-whole hierarchies. Implementing the composite pattern lets clients treat individual objects and compositions uniformly.
