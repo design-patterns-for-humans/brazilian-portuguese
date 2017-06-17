@@ -745,18 +745,18 @@ Console.WriteLine(careers.GetContent()); // "Careers page in Dark Black";
 🌿 Composite
 -----------------
 
-Real world example
-> Every organization is composed of employees. Each of the employees has same features i.e. has a salary, has some responsibilities, may or may not report to someone, may or may not have some subordinates etc.
+Exemplo do mundo real
+> Toda organização é composta por empregados. Cada um dos empregados possuirá as mesmas caracteristicas, tais como salário, possui responsabilidades, pode ou não ter que se reportar a algém ou pode ou não ter subordinados.
 
-In plain words
-> Composite pattern lets clients to treat the individual objects in a uniform manner.
+Resumindo
+> Composite Pattern deixa o cliente tratar objetos individuais de maneira uniforme.
 
-Wikipedia says
-> In software engineering, the composite pattern is a partitioning design pattern. The composite pattern describes that a group of objects is to be treated in the same way as a single instance of an object. The intent of a composite is to "compose" objects into tree structures to represent part-whole hierarchies. Implementing the composite pattern lets clients treat individual objects and compositions uniformly.
+Wikipedia diz
+> Em engenharia de software, o Composite Patter é um design pattern de particionamento. O Composite Pattern descreve que um grupo de objetos deverá ser tratado da mesma maneira que apenas uma instancia de um objeto. A intensão de um Composite é "compor" objetos em estrutura de arvore representando parte de uma hierarquia. Implementar o Composite Patter é permitir que clientes tratem objetos individuais e composições de maneira uniforme.
 
-**Programmatic Example**
+**Exemplo programático**
 
-Taking our employees example from above. Here we have different employee types
+Usaremos nosso exemplo acima com funcionários. Temos diferentes tipos de funcionários.
 
 ```csharp
 interface IEmployee
@@ -793,7 +793,7 @@ class Designer : IEmployee
 }
 ```
 
-Then we have an organization which consists of several different types of employees
+Então, temos uma organização que é composta por inumero tipos diferentes de funcionários.
 
 ```csharp
 class Organization
@@ -809,15 +809,15 @@ class Organization
 }
 ```
 
-And then it can be used as
+E ele pode ser usado como.
 
 ```csharp
-// Prepare the employees
+// Prepara os funcionários 
 var john = new Developer("John Doe", 12000);
 var jane = new Designer("Jane", 10000);
 
-// Add them to organization
-var organization = new Organization();
+// Adicione-os à organização
+organization = new Organization();
 organization.AddEmployee(john);
 organization-.AddEmployee(jane);
 
