@@ -17,7 +17,7 @@ grudar na sua cabeça (e quem sabe na minha) explicando da maneira mais <i>simpl
 
 Design patterns são soluções para problemas recorrentes; **guias de como atacar certos problemas**.
 Não são classes, pacotes nem bibliotecas que você bota na aplicação e espera a mágica acontecer.
-Na realidade, são guias de como atacas certos problemas em certas situações.
+Na realidade, são guias de como atacar certos problemas em certas situações.
 
 > Design patterns solucionam problemas recorrentes; guias de como atacar certos problemas.
 
@@ -71,7 +71,7 @@ de alguma forma.
 🏠 Simple Factory
 --------------
 Exemplo do mundo real
-> Considere, você está construindo uma casa e você precisa de portas. Seria uma bagunça se cada vez que você precisar de uma porta, você colocar em suas roupas de carpinteiro e começar a fazer uma porta em sua casa. Em vez disso você o obtém feito de uma fábrica.
+> Considere que você está construindo uma casa e que precise de portas. Seria uma bagunça se cada vez que você precisar de uma porta, você tenha que colocar suas roupas de carpinteiro e começar a cria-la em sua casa. Em vez disso você a obtém feita por uma fábrica.
 
 Resumindo
 > Simple factory simplesmente gera uma instância para o cliente sem expor qualquer lógica de instanciação para o cliente.
@@ -126,7 +126,7 @@ Ao criar um objeto não é apenas algumas atribuições e envolve alguma lógica
 --------------
 
 Exemplo do mundo real
-> Considere o caso de um gerente de contratação. É impossível para uma pessoa entrevistar para cada uma das posições. Com base na abertura do trabalho, ela tem que decidir e delegar as etapas da entrevista para diferentes pessoas.
+> Considere o caso de um gerente de contratação. É impossível para apenas uma pessoa entrevistar candidatos para cada uma das posições. Com base na abertura do trabalho, ela tem que decidir e delegar as etapas da entrevista para diferentes pessoas.
 
 Resumindo
 > Ele fornece uma maneira de delegar a lógica de instanciação a classe filho.
@@ -211,18 +211,20 @@ marketingManager.TakeInterview(); // Output: Asking about community building.
 🔨 Abstract Factory
 ----------------
 
-Real world example
-> Extending our door example from Simple Factory. Based on your needs you might get a wooden door from a wooden door shop, iron door from an iron shop or a PVC door from the relevant shop. Plus you might need a guy with different kind of specialities to fit the door, for example a carpenter for wooden door, welder for iron door etc. As you can see there is a dependency between the doors now, wooden door needs carpenter, iron door needs a welder etc.
+Exemplo do mundo real
+> Extenderemos o nosso exemplo sobre portas, visto no Simple Factory. Baseado em sua necessidade você pode obter uma porta de madeira de uma loja que vende portas de madeira, umaporta de ferro de uma loja que vende portas de ferro ou uma porta de PVC, se for a uma loja que venda porta deste tipo. Além disto, você precisará de uma pessoa com tipos diferentes de especializações para preparar cada porta.Por exemplo;um carpinteiro para portas de madeira, soldador para portas de ferro e etc. Como pode perceber, existem dependências entre portas, portas de madeira com carpinteiros e portas de ferro com soldador.
 
-In plain words
-> A factory of factories; a factory that groups the individual but related/dependent factories together without specifying their concrete classes. 
+
+Resumindo
+> Uma Factory de Factorues; uma factory que agrupa outras factories com o seu relacionado/dependente sem especificar sua classe concreta.
+
   
-Wikipedia says
-> The abstract factory pattern provides a way to encapsulate a group of individual factories that have a common theme without specifying their concrete classes
+Wikipedia diz
+> O Abstract Factory Pattern provê uma maneira de encapsular um grupo de Factories que tem um tema em comum sem especificar suas classes concretas. 
 
-**Programmatic Example**
+ **Exemplo Programático**
 
-Translating the door example above. First of all we have our `Door` interface and some implementation for it
+Traduzindo o acima sobre as portas. Primeiro, temos nossa interface `Door` e algumas implementações dela.
 
 ```csharp
 interface IDoor
@@ -246,7 +248,7 @@ class IronDoor : IDoor
     }
 }
 ```
-Then we have some fitting experts for each door type
+Então, nós temos alguns especialistas em montagem para cada tipo de porta.
 
 ```csharp
 interface IDoorFittingExpert
@@ -270,8 +272,8 @@ class Carpenter : IDoorFittingExpert
     }
 }
 ```
+Agora, nós temos uma Factory abstrata que poderá nos deixa criar objetos relacionados a uma mesma família, por exemplo; uma Factory de portas de madeira criará uma porta de madeira e um especialista em montagem de portas de mandeira e a Factory de portas de metal criará uma porta de metal com um especialista em montagem de portas de metal.
 
-Now we have our abstract factory that would let us make family of related objects i.e. wooden door factory would create a wooden door and wooden door fitting expert and iron door factory would create an iron door and iron door fitting expert
 ```csharp
 interface IDoorFactory
 {
@@ -279,7 +281,7 @@ interface IDoorFactory
     IDoorFittingExpert MakeFittingExpert();
 }
 
-// Wooden factory to return carpenter and wooden door
+// Factory de portas de madeira retorna carpinteiro e porta de madeira
 class WoodenDoorFactory : IDoorFactory
 {
     public IDoor MakeDoor()
@@ -293,7 +295,7 @@ class WoodenDoorFactory : IDoorFactory
     }
 }
 
-// Iron door factory to get iron door and the relevant fitting expert
+// Factory de portas de ferro retornará porta de ferro e um soldador
 class IronDoorFactory : IDoorFactory
 {
     public IDoor MakeDoor()
@@ -307,7 +309,7 @@ class IronDoorFactory : IDoorFactory
     }
 }
 ```
-And then it can be used as
+E poderá ser usado desta maneira
 ```csharp
 var woodenFactory = new WoodenDoorFactory();
 
@@ -327,11 +329,12 @@ door.GetDescription();  // Output: I am an iron door
 expert.GetDescription(); // Output: I can only fit iron doors
 ```
 
-As you can see the wooden door factory has encapsulated the `carpenter` and the `wooden door` also iron door factory has encapsulated the `iron door` and `welder`. And thus it had helped us make sure that for each of the created door, we do not get a wrong fitting expert.   
+Como pode reparar, a Factory de porta de madeira encapsula o `carpinteiro` e a `porta de madeira` e a Factory de porta de ferro encapsula o `soldador` e a `porta de ferro`. E com isto nos ajuda a ter certeza que para cada porta criada nós não tenhamos um especialista em montagem errado.
 
-**When to use?**
 
-When there are interrelated dependencies with not-that-simple creation logic involved
+**Quando usar?**
+
+Quado existir uma interralação de dependencia com uma lógica de criação não tão simples.
 
 👷 Builder
 --------------------------------------------
