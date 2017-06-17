@@ -751,8 +751,8 @@ Exemplo do mundo real
 Resumindo
 > Composite Pattern deixa o cliente tratar objetos individuais de maneira uniforme.
 
-Wikipedia says
-> In software engineering, the composite pattern is a partitioning design pattern. The composite pattern describes that a group of objects is to be treated in the same way as a single instance of an object. The intent of a composite is to "compose" objects into tree structures to represent part-whole hierarchies. Implementing the composite pattern lets clients treat individual objects and compositions uniformly.
+Wikipedia diz
+> Em engenharia de software, o Composite Patter é um design pattern de particionamento. O Composite Pattern descreve que um grupo de objetos deverá ser tratado da mesma maneira que apenas uma instancia de um objeto. A intensão de um Composite é "compor" objetos em estrutura de arvore representando parte de uma hierarquia. Implementar o Composite Patter é permitir que clientes tratem objetos individuais e composições de maneira uniforme.
 
 **Programmatic Example**
 
