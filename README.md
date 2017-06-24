@@ -834,8 +834,8 @@ Exemplo do mundo real
 Resumindo
 > Decorator Pattern permite que você altere o comportamento de um objeto em tempo de execução, envolvendo-o por um objeto de uma classe Decorator. 
 
-Wikipedia says
-> In object-oriented programming, the decorator pattern is a design pattern that allows behavior to be added to an individual object, either statically or dynamically, without affecting the behavior of other objects from the same class. The decorator pattern is often useful for adhering to the Single Responsibility Principle, as it allows functionality to be divided between classes with unique areas of concern.
+Wikipedia diz
+> Em programação orientada a objeto, o Decorator Pattern permite que se adicione comportamentos para um objeto, tanto de maneira estatica quanto dinâmica, sem afetar o comportamento de outros objetos da mesma classe. O Decorator Pattern é muito útil para ser aderente ao principio de responsabilidade única, uma vez que ele permite que funcionalidades sejam divididas entre classes que compartilhe uma única preocupação.
 
 **Programmatic Example**
 
