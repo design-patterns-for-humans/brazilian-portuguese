@@ -827,9 +827,9 @@ Console.WriteLine("Net salaries: " + organization.GetNetSalaries()); // Net Sala
 ☕ Decorator
 -------------
 
-Real world example
+Exemplo do mundo real
 
-> Imagine you run a car service shop offering multiple services. Now how do you calculate the bill to be charged? You pick one service and dynamically keep adding to it the prices for the provided services till you get the final cost. Here each type of service is a decorator.
+> Imagine você gerenciando uma oficina de carro com muitos serviços. Agora, como você calcularia a conta a ser cobrada? Você escolhe um serviço e começa a adicionar a este serviço preços por demais serviços prestados, de maneira dinâmica, até você ter o custo total final. Aqui que cada um destes serviços seria um decorator.
 
 In plain words
 > Decorator pattern lets you dynamically change the behavior of an object at run time by wrapping them in an object of a decorator class.
