@@ -827,19 +827,19 @@ Console.WriteLine("Net salaries: " + organization.GetNetSalaries()); // Net Sala
 ☕ Decorator
 -------------
 
-Real world example
+Exemplo do mundo real
 
-> Imagine you run a car service shop offering multiple services. Now how do you calculate the bill to be charged? You pick one service and dynamically keep adding to it the prices for the provided services till you get the final cost. Here each type of service is a decorator.
+> Imagine você gerenciando uma oficina de carro com muitos serviços. Agora, como você calcularia a conta a ser cobrada? Você escolhe um serviço e começa a adicionar a este serviço preços por demais serviços prestados, de maneira dinâmica, até você ter o custo total final. Aqui que cada um destes serviços seria um decorator.
 
-In plain words
-> Decorator pattern lets you dynamically change the behavior of an object at run time by wrapping them in an object of a decorator class.
+Resumindo
+> Decorator Pattern permite que você altere o comportamento de um objeto em tempo de execução, envolvendo-o por um objeto de uma classe Decorator. 
 
-Wikipedia says
-> In object-oriented programming, the decorator pattern is a design pattern that allows behavior to be added to an individual object, either statically or dynamically, without affecting the behavior of other objects from the same class. The decorator pattern is often useful for adhering to the Single Responsibility Principle, as it allows functionality to be divided between classes with unique areas of concern.
+Wikipedia diz
+> Em programação orientada a objeto, o Decorator Pattern permite que se adicione comportamentos para um objeto, tanto de maneira estatica quanto dinâmica, sem afetar o comportamento de outros objetos da mesma classe. O Decorator Pattern é muito útil para ser aderente ao principio de responsabilidade única, uma vez que ele permite que funcionalidades sejam divididas entre classes que compartilhe uma única preocupação.
 
-**Programmatic Example**
+**Exemplo programático**
 
-Lets take coffee for example. First of all we have a simple coffee implementing the coffee interface
+Vamos pegar o café como exemplo. Primero de tudo, nós temos um simples café implementando a interface café.
 ```csharp
 interface ICoffee
 {
@@ -853,7 +853,7 @@ class SimpleCoffee : ICoffee
     public string Description { get; } = "Simple coffee";
 }
 ```
-We want to make the code extensible to allow options to modify it if required. Lets make some add-ons (decorators)
+Nós queremos deixar o código extensivel para permitir opções de modificação caso seja necessário. Vamos fazer alguns complementos(Decorators).
 ```csharp
 class MilkCoffee : ICoffee
 {
@@ -897,7 +897,7 @@ class VanillaCoffee : ICoffee
     }
 }
 ```
-Lets make a coffee now
+Vamos fazer um café agora!
 ```csharp
 var someCoffee = new SimpleCoffee();
 Console.WriteLine(someCoffee.Cost()); // 10
