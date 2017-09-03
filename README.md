@@ -1018,17 +1018,17 @@ Resumindo
 O Wikipedia diz
 > Em programa de computadores, Flyweight é um padrão de design de software. Um Flyweight Pattern é um objeto que minimiza o uso de memória, compartilhando o máximo possível de indormações com objetos similares; Esta é uma maneira de usar objetos em larga escala quando uma simples representação repedida poderia usar uma iniceitavel quantidade de memória.
 
-**Programmatic example**
-Translating our tea example from above. First of all we have tea types and tea maker
+**Exemplo programatico**
+Traduzindo o nosso exemplo acima sobre o chá. Primeiro de tudo, temos tipos de chá e preparadores de chá.
 
 ```csharp
-// Anything that will be cached is flyweight. 
-// Types of tea here will be flyweights.
+// Quanquer coisa que for cacheada é Flyweight
+// Tipos de chá será Flyweight
 class KarakTea
 {
 }
 
-// Acts as a factory and saves the tea
+// Atua como uma factory e salva os chás
 class TeaMaker
 {
     protected Dictionary<string, KarakTea> AvailableTea = new Dictionary<string, KarakTea>();
@@ -1044,7 +1044,7 @@ class TeaMaker
     }
 }
 ```
-Then we have the `TeaShop` which takes orders and serves them
+Então, nós temos o 'TeaShop' o qual pega os pedidos e os serve
 ```csharp
 class TeaShop
 {    
@@ -1070,7 +1070,7 @@ class TeaShop
     }
 }
 ```
-And it can be used as below
+E isto pode ser usado como no caso a baixo
 
 ```csharp
 var teaMaker = new TeaMaker();
@@ -1081,9 +1081,9 @@ shop.TakeOrder("more milk", 2);
 shop.TakeOrder("without sugar", 5);
 
 shop.Serve();
-// Serving tea to table# 1
-// Serving tea to table# 2
-// Serving tea to table# 5
+// Servindo chá para a mesa #1
+// Servindo chá para a mesa #2
+// Servindo chá para a mesa #5
 ```
 
 🎱 Proxy
