@@ -1011,8 +1011,9 @@ Exemplo do mundo real
 > Você já tomou chá fresco de alguma barraca? Eles geralmente fazem mais que um copo que você solicitou e guardam o que restou para servir a outro cliente que também solicitar, assim economizam recursos, como por exemplo gás. Flyweight Patter é sobre isto: compartilhar.
 
 
-In plain words
-> It is used to minimize memory usage or computational expenses by sharing as much as possible with similar objects.
+Resumindo
+> Ele é usado para minimizar o uso de memoria ou gasto computacional, compartilhando o máximo que der com objetos semelhantes.
+
 
 Wikipedia says
 > In computer programming, flyweight is a software design pattern. A flyweight is an object that minimizes memory use by sharing as much data as possible with other similar objects; it is a way to use objects in large numbers when a simple repeated representation would use an unacceptable amount of memory.
