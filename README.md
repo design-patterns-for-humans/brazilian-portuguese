@@ -1007,26 +1007,28 @@ computer.TurnOff(); // Bup bup buzzz! Haah! Zzzzz
 🍃 Flyweight
 ---------
 
-Real world example
-> Did you ever have fresh tea from some stall? They often make more than one cup that you demanded and save the rest for any other customer so to save the resources e.g. gas etc. Flyweight pattern is all about that i.e. sharing.
+Exemplo do mundo real
+> Você já tomou chá fresco de alguma barraca? Eles geralmente fazem mais que um copo que você solicitou e guardam o que restou para servir a outro cliente que também solicitar, assim economizam recursos, como por exemplo gás. Flyweight Patter é sobre isto: compartilhar.
 
-In plain words
-> It is used to minimize memory usage or computational expenses by sharing as much as possible with similar objects.
 
-Wikipedia says
-> In computer programming, flyweight is a software design pattern. A flyweight is an object that minimizes memory use by sharing as much data as possible with other similar objects; it is a way to use objects in large numbers when a simple repeated representation would use an unacceptable amount of memory.
+Resumindo
+> Ele é usado para minimizar o uso de memoria ou gasto computacional, compartilhando o máximo que der com objetos semelhantes.
 
-**Programmatic example**
-Translating our tea example from above. First of all we have tea types and tea maker
+
+O Wikipedia diz
+> Em programa de computadores, Flyweight é um padrão de design de software. Um Flyweight Pattern é um objeto que minimiza o uso de memória, compartilhando o máximo possível de indormações com objetos similares; Esta é uma maneira de usar objetos em larga escala quando uma simples representação repedida poderia usar uma iniceitavel quantidade de memória.
+
+**Exemplo programatico**
+Traduzindo o nosso exemplo acima sobre o chá. Primeiro de tudo, temos tipos de chá e preparadores de chá.
 
 ```csharp
-// Anything that will be cached is flyweight. 
-// Types of tea here will be flyweights.
+// Quanquer coisa que for cacheada é Flyweight
+// Tipos de chá será Flyweight
 class KarakTea
 {
 }
 
-// Acts as a factory and saves the tea
+// Atua como uma factory e salva os chás
 class TeaMaker
 {
     protected Dictionary<string, KarakTea> AvailableTea = new Dictionary<string, KarakTea>();
@@ -1042,7 +1044,7 @@ class TeaMaker
     }
 }
 ```
-Then we have the `TeaShop` which takes orders and serves them
+Então, nós temos o 'TeaShop' o qual pega os pedidos e os serve
 ```csharp
 class TeaShop
 {    
@@ -1068,7 +1070,7 @@ class TeaShop
     }
 }
 ```
-And it can be used as below
+E isto pode ser usado como no caso a baixo
 
 ```csharp
 var teaMaker = new TeaMaker();
@@ -1079,9 +1081,9 @@ shop.TakeOrder("more milk", 2);
 shop.TakeOrder("without sugar", 5);
 
 shop.Serve();
-// Serving tea to table# 1
-// Serving tea to table# 2
-// Serving tea to table# 5
+// Servindo chá para a mesa #1
+// Servindo chá para a mesa #2
+// Servindo chá para a mesa #5
 ```
 
 🎱 Proxy
