@@ -1015,8 +1015,8 @@ Resumindo
 > Ele é usado para minimizar o uso de memoria ou gasto computacional, compartilhando o máximo que der com objetos semelhantes.
 
 
-Wikipedia says
-> In computer programming, flyweight is a software design pattern. A flyweight is an object that minimizes memory use by sharing as much data as possible with other similar objects; it is a way to use objects in large numbers when a simple repeated representation would use an unacceptable amount of memory.
+O Wikipedia diz
+> Em programa de computadores, Flyweight é um padrão de design de software. Um Flyweight Pattern é um objeto que minimiza o uso de memória, compartilhando o máximo possível de indormações com objetos similares; Esta é uma maneira de usar objetos em larga escala quando uma simples representação repedida poderia usar uma iniceitavel quantidade de memória.
 
 **Programmatic example**
 Translating our tea example from above. First of all we have tea types and tea maker
