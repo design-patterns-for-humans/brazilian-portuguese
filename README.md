@@ -1092,8 +1092,8 @@ Exemplo do mundo real
 Resumindo
 > Usando o Proxy Patter, uma classe irá representar a funcionalidade de outra classe.
 
-Wikipedia says
-> A proxy, in its most general form, is a class functioning as an interface to something else. A proxy is a wrapper or agent object that is being called by the client to access the real serving object behind the scenes. Use of the proxy can simply be forwarding to the real object, or can provide additional logic. In the proxy extra functionality can be provided, for example caching when operations on the real object are resource intensive, or checking preconditions before operations on the real object are invoked.
+Wikipedia diz
+> Um Proxy, de forma geral, é uma classe funcionando como uma interface para outra coisa. Um Proxy é um envolucro (wrapper) ou Agent Object que é chamado pelo cliente para acessar o objeto real por traz da cena. O uso de Proxy pode ser simplesmente para repassar para um objeto real ou então adicionar lógica a ele. Na lógica adicional que o Proxy pode adicionar temos por exemplo cache para operações que consomem muitos recursos.
 
 **Programmatic Example**
 Taking our security door example from above. Firstly we have the door interface and an implementation of door
