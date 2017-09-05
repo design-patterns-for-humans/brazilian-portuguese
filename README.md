@@ -1160,8 +1160,8 @@ door.Open("invalid"); // Big no! It ain't possible.
 door.Open("$ecr@t"); // Opening lab door
 door.Close(); // Closing lab door
 ```
+Outro exemplo que podemos ter com este Patter é a implementação de data-mapper. Por exemplo, recentemente criei um ODM (Object Data Mapper) para MopngoD usando este Pattern, onde escrevi um Proxy sobre as camadas de classes que utiizassem o comando mágico `__call()`. Todas as chamadas de métodos passam pelo Proxy e depois pelo original do Mongo e o resultado retornado é o mesmo para todos eles, menos para os metodos `find()`e `findOne()`, onde os dados foram mapeados para os seus respectivos objetos antes de serem retornados. 
 
-Yet another example would be some sort of data-mapper implementation. For example, I recently made an ODM (Object Data Mapper) for MongoDB using this pattern where I wrote a proxy around mongo classes while utilizing the magic method `__call()`. All the method calls were proxied to the original mongo class and result retrieved was returned as it is but in case of `find` or `findOne` data was mapped to the required class objects and the object was returned instead of `Cursor`.
 
 Design Patterns Comportamentais
 ==========================
