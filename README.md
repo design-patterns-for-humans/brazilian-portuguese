@@ -1095,8 +1095,8 @@ Resumindo
 Wikipedia diz
 > Um Proxy, de forma geral, é uma classe funcionando como uma interface para outra coisa. Um Proxy é um envolucro (wrapper) ou Agent Object que é chamado pelo cliente para acessar o objeto real por traz da cena. O uso de Proxy pode ser simplesmente para repassar para um objeto real ou então adicionar lógica a ele. Na lógica adicional que o Proxy pode adicionar temos por exemplo cache para operações que consomem muitos recursos.
 
-**Programmatic Example**
-Taking our security door example from above. Firstly we have the door interface and an implementation of door
+**Exemplo Programatico**
+Tendo o exempo da porta a cima, primeiramnete precisaremos criar a interface de porta e implementa-la.
 
 ```csharp
 interface IDoor
@@ -1118,7 +1118,7 @@ class LabDoor : IDoor
     }
 }
 ```
-Then we have a proxy to secure any doors that we want
+Então, nós temos um Proxy para adicionar segurança a porta que quisermos.
 ```csharp
 class Security
 {
@@ -1152,7 +1152,7 @@ class Security
     }
 }
 ```
-And here is how it can be used
+E assim é como ele pode ser utilizado
 ```csharp
 var door = new Security(new LabDoor());
 door.Open("invalid"); // Big no! It ain't possible.
@@ -1160,6 +1160,7 @@ door.Open("invalid"); // Big no! It ain't possible.
 door.Open("$ecr@t"); // Opening lab door
 door.Close(); // Closing lab door
 ```
+
 Yet another example would be some sort of data-mapper implementation. For example, I recently made an ODM (Object Data Mapper) for MongoDB using this pattern where I wrote a proxy around mongo classes while utilizing the magic method `__call()`. All the method calls were proxied to the original mongo class and result retrieved was returned as it is but in case of `find` or `findOne` data was mapped to the required class objects and the object was returned instead of `Cursor`.
 
 Design Patterns Comportamentais
