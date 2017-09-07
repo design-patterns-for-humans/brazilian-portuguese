@@ -1088,17 +1088,17 @@ shop.Serve();
 
 🎱 Proxy
 -------------------
-Real world example
-> Have you ever used an access card to go through a door? There are multiple options to open that door i.e. it can be opened either using access card or by pressing a button that bypasses the security. The door's main functionality is to open but there is a proxy added on top of it to add some functionality. Let me better explain it using the code example below.
+Exemplo do mundo real 
+> Você já utilizou um cartão de acesso para passar por uma porta? Existem muitas opções para abrir uma porta, por exemplo, você poderia tanto usar um cartão de aecsso quanto apertar um botão para passar por sua segurança. A função principla desta porta é abrir, porém existe um proxy antes disto que adiciona outras funcionalidades. Deixe-me explicar melhor isto usando o exemplo em código a seguir.
 
-In plain words
-> Using the proxy pattern, a class represents the functionality of another class.
+Resumindo
+> Usando o Proxy Patter, uma classe irá representar a funcionalidade de outra classe.
 
-Wikipedia says
-> A proxy, in its most general form, is a class functioning as an interface to something else. A proxy is a wrapper or agent object that is being called by the client to access the real serving object behind the scenes. Use of the proxy can simply be forwarding to the real object, or can provide additional logic. In the proxy extra functionality can be provided, for example caching when operations on the real object are resource intensive, or checking preconditions before operations on the real object are invoked.
+Wikipedia diz
+> Um Proxy, de forma geral, é uma classe funcionando como uma interface para outra coisa. Um Proxy é um envolucro (wrapper) ou Agent Object que é chamado pelo cliente para acessar o objeto real por traz da cena. O uso de Proxy pode ser simplesmente para repassar para um objeto real ou então adicionar lógica a ele. Na lógica adicional que o Proxy pode adicionar temos por exemplo cache para operações que consomem muitos recursos.
 
-**Programmatic Example**
-Taking our security door example from above. Firstly we have the door interface and an implementation of door
+**Exemplo Programatico**
+Tendo o exempo da porta a cima, primeiramnete precisaremos criar a interface de porta e implementa-la.
 
 ```csharp
 interface IDoor
@@ -1120,7 +1120,7 @@ class LabDoor : IDoor
     }
 }
 ```
-Then we have a proxy to secure any doors that we want
+Então, nós temos um Proxy para adicionar segurança a porta que quisermos.
 ```csharp
 class Security
 {
@@ -1154,7 +1154,7 @@ class Security
     }
 }
 ```
-And here is how it can be used
+E assim é como ele pode ser utilizado
 ```csharp
 var door = new Security(new LabDoor());
 door.Open("invalid"); // Big no! It ain't possible.
@@ -1162,7 +1162,8 @@ door.Open("invalid"); // Big no! It ain't possible.
 door.Open("$ecr@t"); // Opening lab door
 door.Close(); // Closing lab door
 ```
-Yet another example would be some sort of data-mapper implementation. For example, I recently made an ODM (Object Data Mapper) for MongoDB using this pattern where I wrote a proxy around mongo classes while utilizing the magic method `__call()`. All the method calls were proxied to the original mongo class and result retrieved was returned as it is but in case of `find` or `findOne` data was mapped to the required class objects and the object was returned instead of `Cursor`.
+Outro exemplo que podemos ter com este Patter é a implementação de data-mapper. Por exemplo, recentemente criei um ODM (Object Data Mapper) para MopngoD usando este Pattern, onde escrevi um Proxy sobre as camadas de classes que utiizassem o comando mágico `__call()`. Todas as chamadas de métodos passam pelo Proxy e depois pelo original do Mongo e o resultado retornado é o mesmo para todos eles, menos para os metodos `find()`e `findOne()`, onde os dados foram mapeados para os seus respectivos objetos antes de serem retornados. 
+
 
 Design Patterns Comportamentais
 ==========================
