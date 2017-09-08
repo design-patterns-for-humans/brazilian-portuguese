@@ -2105,9 +2105,9 @@ $iosBuilder->build();
 // Deploying ios build to server
 ```
 
-## 🚦 Wrap Up Folks
+## 🚦 Envolva-se 
 
-And that about wraps it up. I will continue to improve this, so you might want to watch/star this repository to revisit. Also, I have plans on writing the same about the architectural patterns, stay tuned for it.
+E isto é sobre envolver-se. Irei continuar a melhorar este arquivo, então é possível que você queira clicar em watch/star deste repositório para reve-lo no futuro. A, também tenho planos para escrever um repositório semelhante sobre Padrões de Arquitetura (archtectural patterns), fique ligado!
 
 ## 👬 Contribuição
 - Reporte issues
