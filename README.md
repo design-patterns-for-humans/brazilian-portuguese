@@ -950,8 +950,8 @@ Console.WriteLine(someCoffee.Description()); // Simple Coffee, milk, whip, vanil
 📦 Facade
 ----------------
 
-Real world example
-> How do you turn on the computer? "Hit the power button" you say! That is what you believe because you are using a simple interface that computer provides on the outside, internally it has to do a lot of stuff to make it happen. This simple interface to the complex subsystem is a facade.
+Exemplo do mundo real
+. Como voce liga seu compudator? "Aperto o botão ligar", você diz! Isto é o que você pensa, já que está utilizando uma simples interface exposta pelo computador. Internamente ele faz muitas coisas para que o "ligar" ocorra. Esta interface simples para um subsistema complexo é o Facade.
 
 In plain words
 > Facade pattern provides a simplified interface to a complex subsystem.
