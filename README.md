@@ -950,17 +950,17 @@ Console.WriteLine(someCoffee.Description()); // Simple Coffee, milk, whip, vanil
 📦 Facade
 ----------------
 
-Real world example
-> How do you turn on the computer? "Hit the power button" you say! That is what you believe because you are using a simple interface that computer provides on the outside, internally it has to do a lot of stuff to make it happen. This simple interface to the complex subsystem is a facade.
+Exemplo do mundo real
+> Como voce liga seu compudator? "Aperto o botão ligar", você diz! Isto é o que você pensa, já que está utilizando uma simples interface exposta pelo computador. Internamente ele faz muitas coisas para que o "ligar" ocorra. Esta interface simples para um subsistema complexo é o Facade.
 
-In plain words
-> Facade pattern provides a simplified interface to a complex subsystem.
+Resumindo
+> O Pattern Facade provê uma interface simples para um subsistema complexo.
 
-Wikipedia says
-> A facade is an object that provides a simplified interface to a larger body of code, such as a class library.
+Wikipedia diz
+> Uma Facade é um objeto que provê uma interface simples para uma grande porção de código como uma Class Library.
 
-**Programmatic Example**
-Taking our computer example from above. Here we have the computer class
+**Exemplo programatico**
+Usando o exemplo sobre o computador acima, vamos criar uma classe para representa-la.
 
 ```csharp
 class Computer
@@ -1001,7 +1001,7 @@ class Computer
     }
 }
 ```
-Here we have the facade
+Aqui temos uma Facade
 ```csharp
 class ComputerFacade
 {
@@ -1028,7 +1028,7 @@ class ComputerFacade
     }
 }
 ```
-Now to use the facade
+Como usar a classe Facade.
 ```csharp
 var computer = new ComputerFacade(new Computer());
 computer.TurnOn(); // Ouch! Beep beep! Loading.. Ready to be used!
@@ -2105,9 +2105,9 @@ $iosBuilder->build();
 // Deploying ios build to server
 ```
 
-## 🚦 Wrap Up Folks
+## 🚦 Envolva-se 
 
-And that about wraps it up. I will continue to improve this, so you might want to watch/star this repository to revisit. Also, I have plans on writing the same about the architectural patterns, stay tuned for it.
+E isto é sobre envolver-se. Irei continuar a melhorar este arquivo, então é possível que você queira clicar em watch/star deste repositório para reve-lo no futuro. A, também tenho planos para escrever um repositório semelhante sobre Padrões de Arquitetura (archtectural patterns), fique ligado!
 
 ## 👬 Contribuição
 - Reporte issues
