@@ -1028,7 +1028,7 @@ class ComputerFacade
     }
 }
 ```
-Como usar a classe Facade
+Como usar a classe Facade.
 ```csharp
 var computer = new ComputerFacade(new Computer());
 computer.TurnOn(); // Ouch! Beep beep! Loading.. Ready to be used!
