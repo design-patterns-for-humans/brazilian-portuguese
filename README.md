@@ -951,7 +951,7 @@ Console.WriteLine(someCoffee.Description()); // Simple Coffee, milk, whip, vanil
 ----------------
 
 Exemplo do mundo real
-. Como voce liga seu compudator? "Aperto o botão ligar", você diz! Isto é o que você pensa, já que está utilizando uma simples interface exposta pelo computador. Internamente ele faz muitas coisas para que o "ligar" ocorra. Esta interface simples para um subsistema complexo é o Facade.
+> Como voce liga seu compudator? "Aperto o botão ligar", você diz! Isto é o que você pensa, já que está utilizando uma simples interface exposta pelo computador. Internamente ele faz muitas coisas para que o "ligar" ocorra. Esta interface simples para um subsistema complexo é o Facade.
 
 In plain words
 > Facade pattern provides a simplified interface to a complex subsystem.
