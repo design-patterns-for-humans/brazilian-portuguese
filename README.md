@@ -956,8 +956,8 @@ Exemplo do mundo real
 Resumindo
 > O Pattern Facade provê uma interface simples para um subsistema complexo.
 
-Wikipedia says
-> A facade is an object that provides a simplified interface to a larger body of code, such as a class library.
+Wikipedia diz
+> Uma Facade é um objeto que provê uma interface simples para uma grande porção de código como uma Class Library.
 
 **Programmatic Example**
 Taking our computer example from above. Here we have the computer class
