@@ -959,8 +959,8 @@ Resumindo
 Wikipedia diz
 > Uma Facade é um objeto que provê uma interface simples para uma grande porção de código como uma Class Library.
 
-**Programmatic Example**
-Taking our computer example from above. Here we have the computer class
+**Exemplo programatico**
+Usando o exemplo sobre o computador acima, vamos criar uma classe para representa-la.
 
 ```csharp
 class Computer
@@ -1001,7 +1001,7 @@ class Computer
     }
 }
 ```
-Here we have the facade
+Aqui temos uma Facade
 ```csharp
 class ComputerFacade
 {
@@ -1028,7 +1028,7 @@ class ComputerFacade
     }
 }
 ```
-Now to use the facade
+Como usar a classe Facade
 ```csharp
 var computer = new ComputerFacade(new Computer());
 computer.TurnOn(); // Ouch! Beep beep! Loading.. Ready to be used!
