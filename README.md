@@ -1225,7 +1225,9 @@ Desta forma, estes padrões aumentam a flexibilidade em executar estas comunica�
 -----------------------
 
 Real world example
-> For example, you have three payment methods (`A`, `B` and `C`) setup in your account; each having a different amount in it. `A` has 100 USD, `B` has 300 USD and `C` having 1000 USD and the preference for payments is chosen as `A` then `B` then `C`. You try to purchase something that is worth 210 USD. Using Chain of Responsibility, first of all account `A` will be checked if it can make the purchase, if yes purchase will be made and the chain will be broken. If not, request will move forward to account `B` checking for amount if yes chain will be broken otherwise the request will keep forwarding till it finds the suitable handler. Here `A`, `B` and `C` are links of the chain and the whole phenomenon is Chain of Responsibility.
+Exemplo do mundo real
+> Por exemplo, você possui três métodos de pagamento (`A`, `B` e `C`) configurados em sua conta. Cada um destes com uma quantia diferente. Em `A` você tem R$100, Em `B` você tem R$300, Em `C` você tem R$1000, e a preferência para pagamentos é `A` ou então `B` ou então `C`. Você tenta comprar algo que custe R$210. Usando a Chain of Responsibility, primeiramente a conta `A` é verificada para saber se pode comprar, se sim a compra é feita e a cadeia é quebrada, caso contrario, a verificação continual até encontrar uma que seja possível utilizar. Aqui `A`, `B` e `C` são as ligações da cadeia e todo o fenomeno é a Chain of Responsibility.
+
 
 In plain words
 > It helps building a chain of objects. Request enters from one end and keeps going from object to object till it finds the suitable handler.
