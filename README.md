@@ -1228,9 +1228,8 @@ Real world example
 Exemplo do mundo real
 > Por exemplo, você possui três métodos de pagamento (`A`, `B` e `C`) configurados em sua conta. Cada um destes com uma quantia diferente. Em `A` você tem R$100, Em `B` você tem R$300, Em `C` você tem R$1000, e a preferência para pagamentos é `A` ou então `B` ou então `C`. Você tenta comprar algo que custe R$210. Usando a Chain of Responsibility, primeiramente a conta `A` é verificada para saber se pode comprar, se sim a compra é feita e a cadeia é quebrada, caso contrario, a verificação continual até encontrar uma que seja possível utilizar. Aqui `A`, `B` e `C` são as ligações da cadeia e todo o fenomeno é a Chain of Responsibility.
 
-
-In plain words
-> It helps building a chain of objects. Request enters from one end and keeps going from object to object till it finds the suitable handler.
+Resumindo
+> Este Pattern ajuda a criar uma cadeia de objetos. Requer entradas de uma saída e lê objeto por objeto até encontrar um resultado adequado.
 
 Wikipedia says
 > In object-oriented design, the chain-of-responsibility pattern is a design pattern consisting of a source of command objects and a series of processing objects. Each processing object contains logic that defines the types of command objects that it can handle; the rest are passed to the next processing object in the chain.
