@@ -1231,8 +1231,8 @@ Exemplo do mundo real
 Resumindo
 > Este Pattern ajuda a criar uma cadeia de objetos. Requer entradas de uma saída e lê objeto por objeto até encontrar um resultado adequado.
 
-Wikipedia says
-> In object-oriented design, the chain-of-responsibility pattern is a design pattern consisting of a source of command objects and a series of processing objects. Each processing object contains logic that defines the types of command objects that it can handle; the rest are passed to the next processing object in the chain.
+Wikipedia diz
+> Em orientação a objeto, o Pattern Chain of Responsibility é um desing que consiste de um fonte com objetos de comandos e uma série de objetos de processamento. Cada objeto de processamento contem uma lógica que define objetos de comando que ele pode realizar; O demais é passado para o proximo objeto da cadeia.
 
 **Programmatic Example**
 
