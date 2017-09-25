@@ -1287,7 +1287,7 @@ class Bitcoin extends Account {
 }
 ```
 
-Now let's prepare the chain using the links defined above (i.e. Bank, Paypal, Bitcoin)
+Agora, vamos preparar a cadeia usando os linques definidos a cima (exemplo: Banco, Paypal e Bitcoin)
 
 ```php
 // Let's prepare a chain like below
