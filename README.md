@@ -1233,9 +1233,9 @@ Resumindo
 Wikipedia diz
 > Em orientação a objeto, o Pattern Chain of Responsibility é um desing que consiste de um fonte com objetos de comandos e uma série de objetos de processamento. Cada objeto de processamento contem uma lógica que define objetos de comando que ele pode realizar; O demais é passado para o proximo objeto da cadeia.
 
-**Programmatic Example**
+**Exemplo programático**
 
-Translating our account example above. First of all we have a base account having the logic for chaining the accounts together and some accounts
+Traduzindo noss exemplo a cima sobre contas. Primeiramente, temos uma conta base mantendo a lógica para a cadeia de contas juntas e algumas contas.
 
 ```php
 abstract class Account {
