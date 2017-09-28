@@ -1224,18 +1224,17 @@ Desta forma, estes padrões aumentam a flexibilidade em executar estas comunica�
 🔗 Chain of Responsibility
 -----------------------
 
-Real world example
-> For example, you have three payment methods (`A`, `B` and `C`) setup in your account; each having a different amount in it. `A` has 100 USD, `B` has 300 USD and `C` having 1000 USD and the preference for payments is chosen as `A` then `B` then `C`. You try to purchase something that is worth 210 USD. Using Chain of Responsibility, first of all account `A` will be checked if it can make the purchase, if yes purchase will be made and the chain will be broken. If not, request will move forward to account `B` checking for amount if yes chain will be broken otherwise the request will keep forwarding till it finds the suitable handler. Here `A`, `B` and `C` are links of the chain and the whole phenomenon is Chain of Responsibility.
+Exemplo do mundo real
+> Por exemplo, você possui três métodos de pagamento (`A`, `B` e `C`) configurados em sua conta. Cada um destes com uma quantia diferente; em `A` você tem R$100, Em `B` você tem R$300, Em `C` você tem R$1000, e a preferência para pagamentos é `A` ou então `B` ou então `C`. Você tenta comprar algo que custe R$210. Usando a Chain of Responsibility, primeiramente a conta `A` é verificada para saber se pode comprar, se sim a compra é feita e a cadeia é quebrada, caso contrario, a verificação continual até encontrar uma que seja possível utilizar. Aqui `A`, `B` e `C` são as ligações da cadeia e todo o fenomeno é a Chain of Responsibility.
 
-In plain words
-> It helps building a chain of objects. Request enters from one end and keeps going from object to object till it finds the suitable handler.
+Resumindo
+> Este Pattern ajuda a criar uma cadeia de objetos. Requer entradas de uma saída e lê objeto por objeto até encontrar um resultado adequado.
 
-Wikipedia says
-> In object-oriented design, the chain-of-responsibility pattern is a design pattern consisting of a source of command objects and a series of processing objects. Each processing object contains logic that defines the types of command objects that it can handle; the rest are passed to the next processing object in the chain.
+Wikipedia diz
+> Em orientação a objeto, o Pattern Chain of Responsibility é um desing que consiste de um fonte com objetos de comandos e uma série de objetos de processamento. Cada objeto de processamento contem uma lógica que define objetos de comando que ele pode realizar; O demais é passado para o proximo objeto da cadeia.
 
-**Programmatic Example**
-
-Translating our account example above. First of all we have a base account having the logic for chaining the accounts together and some accounts
+**Exemplo programático**
+Traduzindo noss exemplo a cima sobre contas. Primeiramente, temos uma conta base mantendo a lógica para a cadeia de contas juntas e algumas contas.
 
 ```php
 abstract class Account {
@@ -1287,7 +1286,7 @@ class Bitcoin extends Account {
 }
 ```
 
-Now let's prepare the chain using the links defined above (i.e. Bank, Paypal, Bitcoin)
+Agora, vamos preparar a cadeia usando os linques definidos a cima (exemplo: Banco, Paypal e Bitcoin)
 
 ```php
 // Let's prepare a chain like below
