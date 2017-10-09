@@ -1428,86 +1428,86 @@ Wikipedia diz
 > Na programação orientada a objetos, um iterador se refere tanto ao objeto que permite ao programador percorrer um container, (uma coleção de elementos) particularmente listas,quanto ao design pattern Iterator, no qual um iterador é usado para percorrer um container e acessar seus elementos. O padrão Iterator desacopla os algoritmos dos recipientes, porém em alguns casos, os algoritmos são necessariamente específicos dos containers e, portanto, não podem ser desacoplados.
 
 **Exemplo Programático**
-Com PHP é relativamente fácil implementar usando SPL (Biblioteca PHP Padrão). Traduzindo nosso exemplo das estações de rádio para o código abaixo. Primeiramente nós temos a 'RadioStation' 
+Com PHP é relativamente fácil implementar usando SPL (Biblioteca PHP Padrão). Traduzindo nosso exemplo das estações de rádio para o código abaixo. Primeiramente nós temos a 'EstacaoDeRadio' 
 
 
 ```php
-class RadioStation {
-    protected $frequency;
+class EstacaoDeRadio { \\classe que representa a estação de rádio
+    protected $frequencia;
 
-    public function __construct(float $frequency) {
-        $this->frequency = $frequency;    
+    public function __construct(float $frequencia) {
+        $this->frequencia = $frequencia;    
     }
     
-    public function getFrequency() : float {
-        return $this->frequency;
+    public function getFrequencia() : float {
+        return $this->frequencia;
     }
 }
 ```
-Then we have our iterator
+Aqui temos nosso iterador
 
 ```php
 use Countable;
 use Iterator;
 
-class StationList implements Countable, Iterator {
-    /** @var RadioStation[] $stations */
-    protected $stations = [];
+class EstacaoList implements Countable, Iterator {
+    /** @var EstacaoDeRadio[] $estacoes */
+    protected $estacoes = [];
     
-    /** @var int $counter */
-    protected $counter;
+    /** @var int $contador */
+    protected $contador;
     
-    public function addStation(RadioStation $station) {
-        $this->stations[] = $station;
+    public function addEstacao(EstacaoDeRadio $estacao) {
+        $this->estacoes[] = $estacao;
     }
     
-    public function removeStation(RadioStation $toRemove) {
-        $toRemoveFrequency = $toRemove->getFrequency();
-        $this->stations = array_filter($this->stations, function (RadioStation $station) use ($toRemoveFrequency) {
-            return $station->getFrequency() !== $toRemoveFrequency;
+    public function removeEstacao(EstacaoDeRadio $toRemove) {
+        $toRemoveFrequencia = $toRemove->getFrequencia();
+        $this->estacoes = array_filter($this->estacoes, function (EstacaoDeRadio $estacao) use ($toRemoveFrequencia) {
+            return $estacao->getFrequencia() !== $toRemoveFrequencia;
         });
     }
     
     public function count() : int {
-        return count($this->stations);
+        return count($this->estacoes);
     }
     
-    public function current() : RadioStation {
-        return $this->stations[$this->counter];
+    public function current() : EstacaoDeRadio {
+        return $this->estacoes[$this->contador];
     }
     
     public function key() {
-        return $this->counter;
+        return $this->contador;
     }
     
     public function next() {
-        $this->counter++;
+        $this->contador++;
     }
     
     public function rewind() {
-        $this->counter = 0;
+        $this->contador = 0;
     }
     
     public function valid(): bool
     {
-        return isset($this->stations[$this->counter]);
+        return isset($this->estacoes[$this->contador]);
     }
 }
 ```
-And then it can be used as
+E então ele pode ser usado como
 ```php
-$stationList = new StationList();
+$estacaoList = new EstacaoList();
 
-$stationList->addStation(new Station(89));
-$stationList->addStation(new Station(101));
-$stationList->addStation(new Station(102));
-$stationList->addStation(new Station(103.2));
+$estacaoList->addEstacao(new Estacao(89));
+$estacaoList->addEstacao(new Estacao(101));
+$estacaoList->addEstacao(new Estacao(102));
+$estacaoList->addEstacao(new Estacao(103.2));
 
-foreach($stationList as $station) {
-    echo $station->getFrequency() . PHP_EOL;
+foreach($estacaoList as $estacao) {
+    echo $estacao->getFrequencia() . PHP_EOL;
 }
 
-$stationList->removeStation(new Station(89)); // Will remove station 89
+$estacaoList->removeEstacao(new Estacao(89)); // Iremos remover a estação 89
 ```
 
 👽 Mediator
