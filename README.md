@@ -1520,7 +1520,7 @@ Exemplo do mundo real
 Resumindo
 > O pattern Mediator adiciona um objeto de terceiros (chamado mediador) para controlar a interação entre os dois objetos (chamados colegas). Isso ajuda a reduzir o acoplamento entre as classes que estão comunicando entre si. Pois agora elas não têm a necessidade de conhecer a implementação uma da outra. 
 
-Wikipedia says
+Wikipedia diz
 > Na engenharia de software, o pattern mediator define um objeto que encapsula como conjunto de objetos interagem. Este pattern um pattern comportamental (behavioral pattern), pois ele pode alterar o comportamento do programa.
 
 **Exemplo Programático**
