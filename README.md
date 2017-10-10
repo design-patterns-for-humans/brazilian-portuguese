@@ -1575,22 +1575,24 @@ $jane->send('Hey!');
 
 💾 Memento
 -------
-Real world example
-> Take the example of calculator (i.e. originator), where whenever you perform some calculation the last calculation is saved in memory (i.e. memento) so that you can get back to it and maybe get it restored using some action buttons (i.e. caretaker). 
+Exemplo do mundo real
+> Veja o exemplo da calculadora (i.e. originador), onde sempre que você executa um cálculo, o último cálculo é salvo na memória (i.e. memento) assim você pode acessá-lo novamente e talvez retornar a ele pressionando alguns botões (i.e. armazenador).
 
-In plain words
-> Memento pattern is about capturing and storing the current state of an object in a manner that it can be restored later on in a smooth manner.
+Resumindo
+> O pattern Memento é sobre capturar e armazenar o estado atual de um objeto de uma forma que isso possa ser restaurado futuramente de forma tranquila.
 
-Wikipedia says
-> The memento pattern is a software design pattern that provides the ability to restore an object to its previous state (undo via rollback).
+Wikipedia diz
+> O pattern Memento é um  design pattern que proporciona a habilidade de restaurar um objeto a seu estado anterior (desfazer por meio de reversão).
 
-Usually useful when you need to provide some sort of undo functionality.
 
-**Programmatic Example**
+Normalmente útil quando você precisa fornecer uma funcionalidade como a de desfazer.
 
-Lets take an example of text editor which keeps saving the state from time to time and that you can restore if you want.
+**Exemplo Programático**
 
-First of all we have our memento object that will be able to hold the editor state
+Vamos utilizar o exemplo do editor de texto que continua guardando o estado de tempo em tempo e que você pode restaurar se quiser. 
+
+Em primeiro lugar, temos o nosso objeto memento que poderá guardar o estado do editor
+
 
 ```php
 class EditorMemento {
@@ -1606,7 +1608,7 @@ class EditorMemento {
 }
 ```
 
-Then we have our editor i.e. originator that is going to use memento object
+Então nós temos nosso editor i.e. originador que irá utilizar nosso objeto memento
 
 ```php
 class Editor {
@@ -1630,28 +1632,28 @@ class Editor {
 }
 ```
 
-And then it can be used as 
+Em seguida o Editor pode ser usado da seguinte forma
 
 ```php
 $editor = new Editor();
 
-// Type some stuff
-$editor->type('This is the first sentence.');
-$editor->type('This is second.');
+// Escreva alguma coisa
+$editor->type('Esta é a primeira sentença.');
+$editor->type('Esta é a segunda.');
 
-// Save the state to restore to : This is the first sentence. This is second.
+// Salva o estado, para restaurar para : Esta é a primeira sentença. Esta é a segunda.
 $saved = $editor->save();
 
-// Type some more
-$editor->type('And this is third.');
+// Escreva mais alguma coisa
+$editor->type('E esta é a terceira.');
 
-// Output: Content before Saving
-echo $editor->getContent(); // This is the first sentence. This is second. And this is third.
+// Saída: Conteúdo salvo anteriormente
+echo $editor->getContent(); // Esta é a primeira sentença. Esta é a segunda. E esta é a terceira.
 
-// Restoring to last saved state
+// Restaura para o último estado salvo
 $editor->restore($saved);
 
-$editor->getContent(); // This is the first sentence. This is second.
+$editor->getContent(); // Esta é a primeira sentença. Esta é a segunda.
 ```
 
 😎 Observer
