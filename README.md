@@ -1511,20 +1511,22 @@ $stationList->removeStation(new Station(89)); // Will remove station 89
 👽 Mediator
 ========
 
-Real world example
-> A general example would be when you talk to someone on your mobile phone, there is a network provider sitting between you and them and your conversation goes through it instead of being directly sent. In this case network provider is mediator. 
 
-In plain words
-> Mediator pattern adds a third party object (called mediator) to control the interaction between two objects (called colleagues). It helps reduce the coupling between the classes communicating with each other. Because now they don't need to have the knowledge of each other's implementation. 
+Exemplo do mundo real
+> Um exemplo comum pode ser quando você fala com alguém em seu telefone celular, neste caso há um provedor de rede situado entre vocês e sua conversa passa através do provedor ao invés de ser enviada diretamente de um celular ao outro. Neste caso, o provedor de rede é mediador.
+
+Resumindo
+> O pattern Mediator adiciona um objeto de terceiros (chamado mediador) para controlar a interação entre os dois objetos (chamados colegas). Isso ajuda a reduzir o acoplamento entre as classes que estão comunicando entre si. Pois agora elas não têm a necessidade de conhecer a implementação uma da outra. 
 
 Wikipedia says
-> In software engineering, the mediator pattern defines an object that encapsulates how a set of objects interact. This pattern is considered to be a behavioral pattern due to the way it can alter the program's running behavior.
+> Na engenharia de software, o pattern mediator define um objeto que encapsula como conjunto de objetos interagem. Este pattern um pattern comportamental (behavioral pattern), pois ele pode alterar o comportamento do programa.
 
-**Programmatic Example**
+**Exemplo Programático**
 
-Here is the simplest example of a chat room (i.e. mediator) with users (i.e. colleagues) sending messages to each other. 
+Temos aqui um exemplo simples de uma sala de bate-papo (i.e. mediador) com usuários (i.e. colegas) enviando mensagens uns aos outros.
 
-First of all, we have the mediator i.e. the chat room 
+Em primeiro lugar, temos o mediador, isto é, a sala de bate-papo
+
 
 ```php
 // Mediator
@@ -1538,7 +1540,7 @@ class ChatRoom implements ChatRoomMediator {
 }
 ```
 
-Then we have our users i.e. colleagues
+Então nós temos nossos usuários i.e. colegas
 ```php
 class User {
     protected $name;
@@ -1558,18 +1560,18 @@ class User {
     }
 }
 ```
-And the usage
+E seu uso
 ```php
 $mediator = new ChatRoom();
 
 $john = new User('John Doe', $mediator);
 $jane = new User('Jane Doe', $mediator);
 
-$john->send('Hi there!');
-$jane->send('Hey!');
+$john->send('Olá!');
+$jane->send('Oi!');
 
-// Output will be
-// Feb 14, 10:58 [John]: Hi there!
+// A saída será
+// Feb 14, 10:58 [John]: Olá!
 // Feb 14, 10:58 [Jane]: Hey!
 ```
 
