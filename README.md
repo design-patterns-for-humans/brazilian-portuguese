@@ -1417,95 +1417,97 @@ Command pattern can also be used to implement a transaction based system. Where 
 ➿ Iterator
 --------
 
-Real world example
-> An old radio set will be a good example of iterator, where user could start at some channel and then use next or previous buttons to go through the respective channels. Or take an example of MP3 player or a TV set where you could press the next and previous buttons to go through the consecutive channels or in other words they all provide an interface to iterate through the respective channels, songs or radio stations.  
+Exemplo do mundo real
+> Um antigo aparelho de radio será um bom exemplo para iterador, onde o usuário começa em alguma estação e então usa os botões próximo ou anterior para navegar entre as demais. Ou use o exemplo de um MP3 player ou uma TV, onde você pode apertar os botões próximo e anterior para percorrer os canais em sequência, em outras palavras, todos eles fornecem uma interface para iterar através dos respectivos canais, músicas ou estações de rádio.
+ 
 
-In plain words
-> It presents a way to access the elements of an object without exposing the underlying presentation.
+Resumindo
+> Ele apresenta uma maneira de acessar os elementos de um objeto sem expor a toda a estrutura.
 
-Wikipedia says
-> In object-oriented programming, the iterator pattern is a design pattern in which an iterator is used to traverse a container and access the container's elements. The iterator pattern decouples algorithms from containers; in some cases, algorithms are necessarily container-specific and thus cannot be decoupled.
+Wikipedia diz
+> Na programação orientada a objetos, um iterador se refere tanto ao objeto que permite ao programador percorrer um container, (uma coleção de elementos) particularmente listas,quanto ao design pattern Iterator, no qual um iterador é usado para percorrer um container e acessar seus elementos. O padrão Iterator desacopla os algoritmos dos recipientes, porém em alguns casos, os algoritmos são necessariamente específicos dos containers e, portanto, não podem ser desacoplados.
 
-**Programmatic example**
-In PHP it is quite easy to implement using SPL (Standard PHP Library). Translating our radio stations example from above. First of all we have `RadioStation`
+**Exemplo Programático**
+Com PHP é relativamente fácil implementar usando SPL (Biblioteca PHP Padrão). Traduzindo nosso exemplo das estações de rádio para o código abaixo. Primeiramente nós temos a 'EstacaoDeRadio' 
+
 
 ```php
-class RadioStation {
-    protected $frequency;
+class EstacaoDeRadio { \\classe que representa a estação de rádio
+    protected $frequencia;
 
-    public function __construct(float $frequency) {
-        $this->frequency = $frequency;    
+    public function __construct(float $frequencia) {
+        $this->frequencia = $frequencia;    
     }
     
-    public function getFrequency() : float {
-        return $this->frequency;
+    public function getFrequencia() : float {
+        return $this->frequencia;
     }
 }
 ```
-Then we have our iterator
+Aqui temos nosso iterador
 
 ```php
 use Countable;
 use Iterator;
 
-class StationList implements Countable, Iterator {
-    /** @var RadioStation[] $stations */
-    protected $stations = [];
+class EstacaoList implements Countable, Iterator {
+    /** @var EstacaoDeRadio[] $estacoes */
+    protected $estacoes = [];
     
-    /** @var int $counter */
-    protected $counter;
+    /** @var int $contador */
+    protected $contador;
     
-    public function addStation(RadioStation $station) {
-        $this->stations[] = $station;
+    public function addEstacao(EstacaoDeRadio $estacao) {
+        $this->estacoes[] = $estacao;
     }
     
-    public function removeStation(RadioStation $toRemove) {
-        $toRemoveFrequency = $toRemove->getFrequency();
-        $this->stations = array_filter($this->stations, function (RadioStation $station) use ($toRemoveFrequency) {
-            return $station->getFrequency() !== $toRemoveFrequency;
+    public function removeEstacao(EstacaoDeRadio $toRemove) {
+        $toRemoveFrequencia = $toRemove->getFrequencia();
+        $this->estacoes = array_filter($this->estacoes, function (EstacaoDeRadio $estacao) use ($toRemoveFrequencia) {
+            return $estacao->getFrequencia() !== $toRemoveFrequencia;
         });
     }
     
     public function count() : int {
-        return count($this->stations);
+        return count($this->estacoes);
     }
     
-    public function current() : RadioStation {
-        return $this->stations[$this->counter];
+    public function current() : EstacaoDeRadio {
+        return $this->estacoes[$this->contador];
     }
     
     public function key() {
-        return $this->counter;
+        return $this->contador;
     }
     
     public function next() {
-        $this->counter++;
+        $this->contador++;
     }
     
     public function rewind() {
-        $this->counter = 0;
+        $this->contador = 0;
     }
     
     public function valid(): bool
     {
-        return isset($this->stations[$this->counter]);
+        return isset($this->estacoes[$this->contador]);
     }
 }
 ```
-And then it can be used as
+E então ele pode ser usado como
 ```php
-$stationList = new StationList();
+$estacaoList = new EstacaoList();
 
-$stationList->addStation(new Station(89));
-$stationList->addStation(new Station(101));
-$stationList->addStation(new Station(102));
-$stationList->addStation(new Station(103.2));
+$estacaoList->addEstacao(new Estacao(89));
+$estacaoList->addEstacao(new Estacao(101));
+$estacaoList->addEstacao(new Estacao(102));
+$estacaoList->addEstacao(new Estacao(103.2));
 
-foreach($stationList as $station) {
-    echo $station->getFrequency() . PHP_EOL;
+foreach($estacaoList as $estacao) {
+    echo $estacao->getFrequencia() . PHP_EOL;
 }
 
-$stationList->removeStation(new Station(89)); // Will remove station 89
+$estacaoList->removeEstacao(new Estacao(89)); // Iremos remover a estação 89
 ```
 
 👽 Mediator
