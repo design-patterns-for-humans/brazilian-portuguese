@@ -1668,7 +1668,7 @@ Exemplo do mundo real
 Resumindo
 > Define uma dependência entre objetos de maneira que quando um objeto altera seu estado, todos seus dependentes são notificados.
 
-estado
+Wikipedia diz
 > O padrão Observer é um padrão de design de software no qual um objeto, chamado de objeto de interesse, mantêm uma lista de seus dependentes, chamados observadores, e os notifica automaticamente de qualquer alteração no estado, geralmente através de chamadas a um dos seus métodos.
 
 **Exemplo Programático**
