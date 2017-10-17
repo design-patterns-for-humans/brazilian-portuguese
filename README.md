@@ -1663,7 +1663,7 @@ $editor->getContent(); // Esta é a primeira sentença. Esta é a segunda.
 😎 Observer
 --------
 Exemplo do mundo real
-> Um bom exemplo seriam as pessoas que estão buscando emprego e que se inscrevem em algum site de divulgação de vagas e são notificados quando é anunciada uma oferta de emprego correspondente.
+> Um bom exemplo seriam pessoas que estão buscando emprego e que se inscrevem em algum site de divulgação de vagas e são notificados quando é anunciada uma oferta de emprego correspondente.
 
 Resumindo
 > Define uma dependência entre objetos de maneira que quando um objeto altera seu estado, todos seus dependentes são notificados.
