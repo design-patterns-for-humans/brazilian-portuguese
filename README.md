@@ -1662,18 +1662,18 @@ $editor->getContent(); // Esta é a primeira sentença. Esta é a segunda.
 
 😎 Observer
 --------
-Real world example
-> A good example would be the job seekers where they subscribe to some job posting site and they are notified whenever there is a matching job opportunity.   
+Exemplo do mundo real
+> Um bom exemplo seriam pessoas que estão buscando emprego e que se inscrevem em algum site de divulgação de vagas e são notificados quando é anunciada uma oferta de emprego correspondente.
 
-In plain words
-> Defines a dependency between objects so that whenever an object changes its state, all its dependents are notified.
+Resumindo
+> Define uma dependência entre objetos de maneira que quando um objeto altera seu estado, todos seus dependentes são notificados.
 
-Wikipedia says
-> The observer pattern is a software design pattern in which an object, called the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
+Wikipedia diz
+> O padrão Observer é um padrão de design de software no qual um objeto, chamado de objeto de interesse, mantêm uma lista de seus dependentes, chamados observadores, e os notifica automaticamente de qualquer alteração no estado, geralmente através de chamadas a um dos seus métodos.
 
-**Programmatic example**
+**Exemplo Programático**
 
-Translating our example from above. First of all we have job seekers that need to be notified for a job posting
+Traduzindo nosso exemplo acima. Primeiro, nós temos buscadores de emprego que precisam ser notificados de anúncios de vagas
 ```php
 class JobPost {
     protected $title;
@@ -1700,7 +1700,7 @@ class JobSeeker implements Observer {
     }
 }
 ```
-Then we have our job postings to which the job seekers will subscribe
+Então nós temos nossa publicação de vagas na qual os que estão buscando emprego vão se inscrever
 ```php
 class JobPostings implements Observable {
     protected $observers = [];
@@ -1720,19 +1720,19 @@ class JobPostings implements Observable {
     }
 }
 ```
-Then it can be used as
+Então pode ser usado como
 ```php
-// Create subscribers
+// Cria buscadores de emprego
 $johnDoe = new JobSeeker('John Doe');
 $janeDoe = new JobSeeker('Jane Doe');
 $kaneDoe = new JobSeeker('Kane Doe');
 
-// Create publisher and attach subscribers
+// Cria publicação de vagas e atribui buscadores
 $jobPostings = new JobPostings();
 $jobPostings->attach($johnDoe);
 $jobPostings->attach($janeDoe);
 
-// Add a new job and see if subscribers get notified
+// Adiciona uma nova vaga e verifica se os buscadores são notificados
 $jobPostings->addJob(new JobPost('Software Engineer'));
 
 // Output
