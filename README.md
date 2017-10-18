@@ -1742,21 +1742,21 @@ $jobPostings->addJob(new JobPost('Software Engineer'));
 
 🏃 Visitor
 -------
-Real world example
-> Consider someone visiting Dubai. They just need a way (i.e. visa) to enter Dubai. After arrival, they can come and visit any place in Dubai on their own without having to ask for permission or to do some leg work in order to visit any place here; just let them know of a place and they can visit it. Visitor pattern lets you do just that, it helps you add places to visit so that they can visit as much as they can without having to do any legwork.
+Exemplo do mundo real
+> Considere alguém visitando Dubai. Eles só precisam de uma maneira (i.e. visto) para entrar em Dubai. Após a chegada, eles podem visitar qualquer lugar de Dubai por conta própria sem ter que pedir permissão ou para caminhar a fim de visitar qualquer lugar aqui; basta saber a respeito do lugar e eles podem visitá-lo. O padrão Visitor deixa você fazer justamente isso, ele ajuda você a adicionar lugares a serem visitados de maneira que eles possam visitar o máximo de locais possíveis sem a necessidade de caminhar para encontrá-los.
 
-In plain words
-> Visitor pattern lets you add further operations to objects without having to modify them.
+Resumindo
+> O padrão Visitor permite que você adicione operações adicionais a objetos sem ter que modificá-los.
     
-Wikipedia says
-> In object-oriented programming and software engineering, the visitor design pattern is a way of separating an algorithm from an object structure on which it operates. A practical result of this separation is the ability to add new operations to existing object structures without modifying those structures. It is one way to follow the open/closed principle.
+Wikipedia diz
+> Na programação orientada a objetos e engenharia de software, o padrão de design visitor é uma maneira de separar um algoritmo da estrutura de um objeto no qual ele opera. Um resultado prático dessa separação é a habilidade de adicionar novas operações a objetos existentes sem ter que modificar suas estruturas. É uma maneira de seguir o princípio de aberto/fechado.
 
-**Programmatic example**
+**Exemplo Programático**
 
-Let's take an example of a zoo simulation where we have several different kinds of animals and we have to make them Sound. Let's translate this using visitor pattern 
+Vamos tomar como exemplo uma simulação de zoológico onde nós temos vários tipos diferentes de animais e temos que fazer eles emitirem Sons. Vamos traduzir isso utilizando o padrão visitor
 
 ```php
-// Visitee
+// Visitado
 interface Animal {
     public function accept(AnimalOperation $operation);
 }
@@ -1768,7 +1768,7 @@ interface AnimalOperation {
     public function visitDolphin(Dolphin $dolphin);
 }
 ```
-Then we have our implementations for the animals
+Então nós temos nossas implementações para os animais
 ```php
 class Monkey implements Animal {
     
@@ -1782,6 +1782,7 @@ class Monkey implements Animal {
 }
 
 class Lion implements Animal {
+  
     public function roar() {
         echo 'Roaaar!';
     }
@@ -1792,6 +1793,7 @@ class Lion implements Animal {
 }
 
 class Dolphin implements Animal {
+  
     public function speak() {
         echo 'Tuut tuttu tuutt!';
     }
@@ -1801,7 +1803,7 @@ class Dolphin implements Animal {
     }
 }
 ```
-Let's implement our visitor
+Vamos implementar nosso visitor
 ```php
 class Speak implements AnimalOperation {
     public function visitMonkey(Monkey $monkey) {
@@ -1818,7 +1820,7 @@ class Speak implements AnimalOperation {
 }
 ```
 
-And then it can be used as
+E pode ser usado como
 ```php
 $monkey = new Monkey();
 $lion = new Lion();
@@ -1830,7 +1832,7 @@ $monkey->accept($speak);    // Ooh oo aa aa!
 $lion->accept($speak);      // Roaaar!
 $dolphin->accept($speak);   // Tuut tutt tuutt!
 ```
-We could have done this simply by having a inheritance hierarchy for the animals but then we would have to modify the animals whenever we would have to add new actions to animals. But now we will not have to change them. For example, let's say we are asked to add the jump behavior to the animals, we can simply add that by creating a new visitor i.e.
+Nós poderíamos ter feito isso simplesmente tendo uma hierarquia de herança para os animais, mas aí teríamos que modificar os animais sempre que precisássemos adicionar novas ações a eles. Mas agora não precisaremos alterá-los. Por exemplo, vamos supor que nos pediram para adicionar o comportamento de pulo aos animais, nós podíamos adicionar isso criando um novo visitor i.e.
 
 ```php
 class Jump implements AnimalOperation {
@@ -1847,7 +1849,7 @@ class Jump implements AnimalOperation {
     }
 }
 ```
-And for the usage
+E para utilização
 ```php
 $jump = new Jump();
 
