@@ -1866,18 +1866,18 @@ $dolphin->accept($jump);   // Walked on water a little and disappeared
 💡 Strategy
 --------
 
-Real world example
-> Consider the example of sorting, we implemented bubble sort but the data started to grow and bubble sort started getting very slow. In order to tackle this we implemented Quick sort. But now although the quick sort algorithm was doing better for large datasets, it was very slow for smaller datasets. In order to handle this we implemented a strategy where for small datasets, bubble sort will be used and for larger, quick sort.
+Exemplo do mundo real
+> Considere o exemplo de ordenação, nós implementamos o algoritmo de Bubble Sort mas a quantidade de dados começou a crescer e o algoritmo começou a ficar muito lento. Para contornar o problema nós implementamos o Quick Sort. Embora o algoritmo Quick Sort performe melhor para conjuntos de dados muito grandes, era muito lento para conjuntos menores. Para resolver a situação implementamos uma estratégia na qual para conjuntos de dados pequenos, seja utilizado o Bubble Sort e para conjuntos de dados maiores, utilizado o Quick Sort.
 
-In plain words
-> Strategy pattern allows you to switch the algorithm or strategy based upon the situation.
+Resumindo
+> O padrão de Strategy permite a troca de algoritmo ou estratégia baseado na situação.
 
-Wikipedia says
-> In computer programming, the strategy pattern (also known as the policy pattern) is a behavioural software design pattern that enables an algorithm's behavior to be selected at runtime.
+Wikipedia diz
+> Na programação de computadoes, o padrão Strategy (também conhecido como padrão Policy) é um padrão comportamental de design de software que permite que o comportamento de um algoritmo seja selecionado em tempo de execução.
  
-**Programmatic example**
+**Exemplo Programático**
 
-Translating our example from above. First of all we have our strategy interface and different strategy implementations
+Traduzindo nosso exemplo acima. Primeiramente devemos ter nossa interface de Strategy e diferentes implementações de estratégia.
 
 ```php
 interface SortStrategy {
@@ -1903,7 +1903,8 @@ class QuickSortStrategy implements SortStrategy {
 }
 ```
  
-And then we have our client that is going to use any strategy
+E temos nosso client, que vai utilizar qualquer uma das estratégias
+
 ```php
 class Sorter {
     protected $sorter;
@@ -1917,7 +1918,8 @@ class Sorter {
     }
 }
 ```
-And it can be used as
+
+E pode ser usado como
 ```php
 $dataset = [1, 5, 4, 3, 2, 8];
 
