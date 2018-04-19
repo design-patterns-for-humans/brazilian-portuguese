@@ -1932,21 +1932,21 @@ $sorter->sort($dataset); // Output : Sorting using quick sort
 
 💢 State
 -----
-Real world example
-> Imagine you are using some drawing application, you choose the paint brush to draw. Now the brush changes its behavior based on the selected color i.e. if you have chosen red color it will draw in red, if blue then it will be in blue etc.  
+Exemplo do mundo real
+> Imagine que você está utilizando alguma aplicação gráfica e escolhe um pincel para desenhar. O pincel muda seu comportamento baseado na cor selecionada i.e. se você seleciona a cor vermelha, ele irá desenhar em vermelho, se selecionar azul então será em azul etc.
 
-In plain words
-> It lets you change the behavior of a class when the state changes.
+Resumindo
+> Permite que você mude o comportamento de uma classe quando o estado muda.
 
-Wikipedia says
-> The state pattern is a behavioral software design pattern that implements a state machine in an object-oriented way. With the state pattern, a state machine is implemented by implementing each individual state as a derived class of the state pattern interface, and implementing state transitions by invoking methods defined by the pattern's superclass.
-> The state pattern can be interpreted as a strategy pattern which is able to switch the current strategy through invocations of methods defined in the pattern's interface.
+Wikipedia diz
+> O padrão State é um padrão comportamental de design de software que implementa uma máquina de estados de maneira orientada à objetos. Com o padrão State, uma máquina de estados é implementada através da implementação de cada um dos estados individuais como uma classe derivada da interface do padrão State, e implementando transições de estado através de chamadas de métodos definidos na superclasse do padrão.
+> O padrão State pode ser interpretado como um padrão de estratégia que é capaz de alterar a estratégia corrente através de invocações de métodos definidos na interface do padrão.
 
-**Programmatic example**
+**Exemplo Programático**
 
-Let's take an example of text editor, it lets you change the state of text that is typed i.e. if you have selected bold, it starts writing in bold, if italic then in italics etc.
+Vamos tomar como exemplo um editor de texto, ele permite que você altere o estado do texto que é digitado i.e. se você selecionou negrito, irá começar a escrever em negrito, se selecionou itálico então em itálico etc.
 
-First of all we have our state interface and some state implementations
+Primeiramente temos nossa interface de estado e algumas implementações de estado.
 
 ```php
 interface WritingState {
@@ -1971,7 +1971,7 @@ class Default implements WritingState {
     }
 }
 ```
-Then we have our editor
+Então nós temos nosso editor
 ```php
 class TextEditor {
     protected $state;
@@ -1989,7 +1989,7 @@ class TextEditor {
     }
 }
 ```
-And then it can be used as
+Então pode ser usado como
 ```php
 $editor = new TextEditor(new Default());
 
