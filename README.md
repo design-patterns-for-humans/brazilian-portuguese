@@ -1316,19 +1316,19 @@ $bank->pay(259);
 👮 Command
 -------
 
-Real world example
-> A generic example would be you ordering a food at restaurant. You (i.e. `Client`) ask the waiter (i.e. `Invoker`) to bring some food (i.e. `Command`) and waiter simply forwards the request to Chef (i.e. `Receiver`) who has the knowledge of what and how to cook. 
-> Another example would be you (i.e. `Client`) switching on (i.e. `Command`) the television (i.e. `Receiver`) using a remote control (`Invoker`).
+Exemplo do mundo real
+> Um exemplo genérico seria você pedindo comida em um restaurante. Você (i.e. `Client`) pede ao garçon (i.e. `Invoker`) trazer comida (i.e. `Command`) e o garçon simplesmente leva seu pedido ao Chef (i.e. `Receiver`) que tem o conhecimento de o que e como cozinhar. 
+> Outro exemplo seria você (i.e. `Client`) ligando (i.e. `Command`) a televisão (i.e. `Receiver`) usando um controle remoto (`Invoker`).
 
-In plain words
-> Allows you to encapsulate actions in objects. The key idea behind this pattern is to provide the means to decouple client from receiver.
+Resumindo
+> O padrão Command permite que você encapsule ações em objetos. A ideia principal por trás desse padrão é prover os meios de desacoplar o cliente do receptor.
 
-Wikipedia says
-> In object-oriented programming, the command pattern is a behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event at a later time. This information includes the method name, the object that owns the method and values for the method parameters.
+A Wikipedia diz
+> Na programação orientada a objeto, o padrão Command é um padrão de projeto comportamental no qual um objeto é usado para encapsular toda informação necessária para executar uma ação ou ativar um evento em um momento posterior. Esta informação inclui o nome do método, o objeto que possui o método e os valores para os parâmetros do método.
 
-**Programmatic Example**
+**Exemplo Programático**
 
-First of all we have the receiver that has the implementation of every action that could be performed
+Primeiramente, temos o receptor que tem a implementação de todas as ações que podem ser executadas.
 ```php
 // Receiver
 class Bulb {
@@ -1341,7 +1341,7 @@ class Bulb {
     }
 }
 ```
-then we have an interface that each of the commands are going to implement and then we have a set of commands
+Então temos uma interface que cada um dos comandos vai implementar e em seguida, temos um conjunto de comandos.
 ```php
 interface Command {
     public function execute();
@@ -1390,7 +1390,7 @@ class TurnOff implements Command {
     }
 }
 ```
-Then we have an `Invoker` with whom the client will interact to process any commands
+Então temos um `Invoker` com o qual o `Client` vai interagir para processar qualquer comando.
 ```php
 // Invoker
 class RemoteControl {
@@ -1400,7 +1400,7 @@ class RemoteControl {
     }
 }
 ```
-Finally let's see how we can use it in our client
+Finalmente, vamos ver como podemos usá-lo com o nosso `Client`
 ```php
 $bulb = new Bulb();
 
@@ -1412,7 +1412,7 @@ $remoteControl->submit($turnOn); // Bulb has been lit!
 $remoteControl->submit($turnOff); // Darkness!
 ```
 
-Command pattern can also be used to implement a transaction based system. Where you keep maintaining the history of commands as soon as you execute them. If the final command is successfully executed, all good otherwise just iterate through the history and keep executing the `undo` on all the executed commands. 
+O padrão Command também pode ser utilizado para implementar um sistema baseado em transações onde você continua mantendo o histórico de comandos assim que você os executa. Se o comando final é executado com sucesso, tudo bem. Caso contrário, simplesmente itere sobre pelo histórico e execute o comando `undo` em todos os comandos executados. 
 
 ➿ Iterator
 --------
@@ -2016,25 +2016,26 @@ $editor->type('Fifth line');
 📒 Template Method
 ---------------
 
-Real world example
-> Suppose we are getting some house built. The steps for building might look like 
-> - Prepare the base of house
-> - Build the walls
-> - Add roof
-> - Add other floors
-> The order of these steps could never be changed i.e. you can't build the roof before building the walls etc but each of the steps could be modified for example walls can be made of wood or polyester or stone.
+Exemplo do mundo real
+> Suponha que estejamos construindo uma casa. Os passos para sua construção podem se parecer com
+> - Preparar o alicerce da casa
+> - Construir os muros
+> - Construir um teto
+> - Construir outros andares
+
+> A ordem destes passos não pode ser mudada i.e. Você não pode construir um teto antes de construir as paredes e etc mas cada um dos passos pode ser modificado, por exemplo, muros podem ser construídos de madeira, poliéster ou pedra.
   
-In plain words
-> Template method defines the skeleton of how a certain algorithm could be performed, but defers the implementation of those steps to the children classes.
+Resumindo
+> O Template method define o esqueleto de como um algoritmo pode ser executado, mas delega a a implementação destes passos para a classes filhas.
  
-Wikipedia says
-> In software engineering, the template method pattern is a behavioral design pattern that defines the program skeleton of an algorithm in an operation, deferring some steps to subclasses. It lets one redefine certain steps of an algorithm without changing the algorithm's structure.
+A Wikipedia diz
+> Na engenharia de software, o padrão template method é um padrão de projeto comportamental que define o esqueleto de programa de um algoritmo em operação, delegando alguns passos para as subclasses. Ele permite que seja possível redefinir alguns passos do algoritmo sem mudar a estrutura do mesmo.
 
-**Programmatic Example**
+**Exemplo Programático**
 
-Imagine we have a build tool that helps us test, lint, build, generate build reports (i.e. code coverage reports, linting report etc) and deploy our app on the test server.
+Imagine que tenhamos uma build tool que nos auxilia a testar, fazer análise de código, criar a build, gerar relatórios da build (i.e. relatórios de cobertura, relatórios de análise de código etc) e dar deploy do nosso app no servidor de testes.
 
-First of all we have our base class that specifies the skeleton for the build algorithm
+Primeiramente, temos nossa classe base que especifica o esqueleto para o algoritmo de build
 ```php
 abstract class Builder {
     
@@ -2053,65 +2054,65 @@ abstract class Builder {
 }
 ```
 
-Then we can have our implementations
+Então, podemos ter nossa implementação
 
 ```php
 class AndroidBuilder extends Builder {
     public function test() {
-        echo 'Running android tests';
+        echo 'Rodando testes do android';
     }
     
     public function lint() {
-        echo 'Linting the android code';
+        echo 'Análisando o código do android';
     }
     
     public function assemble() {
-        echo 'Assembling the android build';
+        echo 'Montando a build do android';
     }
     
     public function deploy() {
-        echo 'Deploying android build to server';
+        echo 'Fazendo o deploy da build do android para o servidor';
     }
 }
 
 class IosBuilder extends Builder {
     public function test() {
-        echo 'Running ios tests';
+        echo 'Rodando testes do ios';
     }
     
     public function lint() {
-        echo 'Linting the ios code';
+        echo 'Análisando o código do ios';
     }
     
     public function assemble() {
-        echo 'Assembling the ios build';
+        echo 'Montando a build do ios';
     }
     
     public function deploy() {
-        echo 'Deploying ios build to server';
+        echo 'Fazendo o deploy da build do ios para o servidor';
     }
 }
 ```
-And then it can be used as
+Que então, podem ser usadas como
 
 ```php
 $androidBuilder = new AndroidBuilder();
 $androidBuilder->build();
 
 // Output:
-// Running android tests
-// Linting the android code
-// Assembling the android build
-// Deploying android build to server
+// Rodando testes do android
+// Análisando o código do android
+// Montando a build do android
+// Fazendo o deploy da build do android para o servidor
 
 $iosBuilder = new IosBuilder();
 $iosBuilder->build();
 
 // Output:
-// Running ios tests
-// Linting the ios code
-// Assembling the ios build
-// Deploying ios build to server
+// Rodando testes do ios
+// Análisando o código do ios
+// Montando a build do ios
+// Fazendo o deploy da build do ios para o servidor
 ```
 
 ## 🚦 Envolva-se 
