@@ -1316,19 +1316,19 @@ $bank->pay(259);
 👮 Command
 -------
 
-Real world example
-> A generic example would be you ordering a food at restaurant. You (i.e. `Client`) ask the waiter (i.e. `Invoker`) to bring some food (i.e. `Command`) and waiter simply forwards the request to Chef (i.e. `Receiver`) who has the knowledge of what and how to cook. 
-> Another example would be you (i.e. `Client`) switching on (i.e. `Command`) the television (i.e. `Receiver`) using a remote control (`Invoker`).
+Exemplo do mundo geral
+> Um exemplo genérico seria você pedindo comida em um restaurante. Você (i.e. `Client`) pede ao garçon (i.e. `Invoker`) trazer comida (i.e. `Command`) e o garçon simplesmente leva seu pedido ao Chef (i.e. `Receiver`) que tem o conhecimento de o que e como cozinhar. 
+> Outro exemplo seria você (i.e. `Client`) ligando (i.e. `Command`) a televisão (i.e. `Receiver`) usando um controle remoto (`Invoker`).
 
-In plain words
-> Allows you to encapsulate actions in objects. The key idea behind this pattern is to provide the means to decouple client from receiver.
+Resumindo
+> O padrão Command permite que você encapsule ações em objetos. A ideia principal por trás desse padrão é prover os meios de desacoplar o cliente do receptor.
 
 Wikipedia says
-> In object-oriented programming, the command pattern is a behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event at a later time. This information includes the method name, the object that owns the method and values for the method parameters.
+> Na programação orientada a objeto, o padrão Command é um padrão de projeto comportamental no qual um objeto é usado para encapsular toda informação necessária para executar uma ação ou ativar um evento em um momento posterior. Esta informação inclui o nome do método, o objeto que possui o método e os valores para os parâmetros do método.
 
-**Programmatic Example**
+**Exemplo Programático**
 
-First of all we have the receiver that has the implementation of every action that could be performed
+Primeiramente, temos o receptor que tem a implementação de todas as ações que podem ser executadas.
 ```php
 // Receiver
 class Bulb {
@@ -1341,7 +1341,7 @@ class Bulb {
     }
 }
 ```
-then we have an interface that each of the commands are going to implement and then we have a set of commands
+Então temos uma interface que cada um dos comandos vai implementar e em seguida, temos um conjunto de comandos.
 ```php
 interface Command {
     public function execute();
@@ -1390,7 +1390,7 @@ class TurnOff implements Command {
     }
 }
 ```
-Then we have an `Invoker` with whom the client will interact to process any commands
+Então temos um `Invoker` com o qual o cliente vai interagir para processar qualquer comando.
 ```php
 // Invoker
 class RemoteControl {
@@ -1400,7 +1400,7 @@ class RemoteControl {
     }
 }
 ```
-Finally let's see how we can use it in our client
+Finalmente, vamos ver como podemos usá-lo com o nosso cliente
 ```php
 $bulb = new Bulb();
 
@@ -1412,7 +1412,7 @@ $remoteControl->submit($turnOn); // Bulb has been lit!
 $remoteControl->submit($turnOff); // Darkness!
 ```
 
-Command pattern can also be used to implement a transaction based system. Where you keep maintaining the history of commands as soon as you execute them. If the final command is successfully executed, all good otherwise just iterate through the history and keep executing the `undo` on all the executed commands. 
+O padrão Command também pode ser utilizado para implementar um sistema baseado em transações onde você continua mantendo o histórico de comandos assim que você os executa. Se o comando final é executado com sucesso, tudo bem. Caso contrário, simplesmente itere sobre pelo histórico e execute o comando `undo` em todos os comandos executados. 
 
 ➿ Iterator
 --------
