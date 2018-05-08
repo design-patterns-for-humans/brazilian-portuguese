@@ -42,8 +42,8 @@ Types of Design Patterns
 -----------------
 
 * [De Criação](#design-patterns-de-criação)
-* [Estruturais](#structural-design-patterns)
-* [Comportamentais](#behavioral-design-patterns)
+* [Estruturais](#design-patterns-estruturais)
+* [Comportamentais](#design-patterns-comportamentais)
 
 
 Design Patterns de Criação
