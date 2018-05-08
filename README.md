@@ -2026,7 +2026,7 @@ Exemplo do mundo real
 > A ordem destes passos não pode ser mudada i.e. Você não pode construir um teto antes de construir as paredes e etc mas cada um dos passos pode ser modificado, por exemplo, muros podem ser construídos de madeira, poliéster ou pedra.
   
 Resumindo
-> O Template method define o esqueleto de como um algoritmo pode ser executado, mas delega a a implementação destes passos para a classes filhas.
+> O Template method define o esqueleto de como um algoritmo pode ser executado, mas delega a implementação destes passos para a classes filhas.
  
 A Wikipedia diz
 > Na engenharia de software, o padrão template method é um padrão de projeto comportamental que define o esqueleto de programa de um algoritmo em operação, delegando alguns passos para as subclasses. Ele permite que seja possível redefinir alguns passos do algoritmo sem mudar a estrutura do mesmo.
