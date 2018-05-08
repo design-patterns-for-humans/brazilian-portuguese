@@ -41,7 +41,7 @@ salvadores; senão eles podem acabar resultando numa bagunça de código horroro
 Types of Design Patterns
 -----------------
 
-* [De Criação](#creational-design-patterns)
+* [De Criação](#design-patterns-de-criação)
 * [Estruturais](#structural-design-patterns)
 * [Comportamentais](#behavioral-design-patterns)
 
