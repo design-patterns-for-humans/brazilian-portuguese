@@ -2016,25 +2016,25 @@ $editor->type('Fifth line');
 📒 Template Method
 ---------------
 
-Real world example
-> Suppose we are getting some house built. The steps for building might look like 
-> - Prepare the base of house
-> - Build the walls
-> - Add roof
-> - Add other floors
-> The order of these steps could never be changed i.e. you can't build the roof before building the walls etc but each of the steps could be modified for example walls can be made of wood or polyester or stone.
+Exemplo do mundo real
+> Suponha que estejamos construindo uma casa. Os passos para sua construção podem se parecer com
+> - Preparar o alicerce da casa
+> - Construir os muros
+> - Construir um teto
+> - Construir outros andares
+> A ordem destes passos não pode ser mudada i.e. Você não pode construir um teto antes de construir as paredes e etc mas cada um dos passos pode ser modificado, por exemplo, muros podem ser construídos de madeira, poliéster ou pedra.
   
-In plain words
-> Template method defines the skeleton of how a certain algorithm could be performed, but defers the implementation of those steps to the children classes.
+Resumindo
+> O Template method define o esqueleto de como um algoritmo pode ser executado, mas delega a a implementação destes passos para a classes filhas.
  
-Wikipedia says
-> In software engineering, the template method pattern is a behavioral design pattern that defines the program skeleton of an algorithm in an operation, deferring some steps to subclasses. It lets one redefine certain steps of an algorithm without changing the algorithm's structure.
+Wikipedia diz
+> Na engenharia de software, o padrão template method é um padrão de projeto comportamental que define o esqueleto de programa de um algoritmo em operação, delegando alguns passos para as subclasses. Ele permite que seja possível redefinir alguns passos do algoritmo sem mudar a estrutura do mesmo.
 
-**Programmatic Example**
+**Exemplo Programático**
 
-Imagine we have a build tool that helps us test, lint, build, generate build reports (i.e. code coverage reports, linting report etc) and deploy our app on the test server.
+Imagine que tenhamos uma build tool que nos auxilia a testar, fazer análise de código, criar a build, gerar relatórios da build (i.e. relatórios de cobertura, relatórios de análise de código etc) e dar deploy do nosso app no servidor de testes.
 
-First of all we have our base class that specifies the skeleton for the build algorithm
+Primeiramente, temos nossa classe base que especifica o esqueleto para o algoritmo de build
 ```php
 abstract class Builder {
     
@@ -2053,65 +2053,65 @@ abstract class Builder {
 }
 ```
 
-Then we can have our implementations
+Então, podemos ter nossa implementação
 
 ```php
 class AndroidBuilder extends Builder {
     public function test() {
-        echo 'Running android tests';
+        echo 'Rodando testes do android';
     }
     
     public function lint() {
-        echo 'Linting the android code';
+        echo 'Análisando o código do android';
     }
     
     public function assemble() {
-        echo 'Assembling the android build';
+        echo 'Montando a build do android';
     }
     
     public function deploy() {
-        echo 'Deploying android build to server';
+        echo 'Fazendo o deploy da build do android para o servidor';
     }
 }
 
 class IosBuilder extends Builder {
     public function test() {
-        echo 'Running ios tests';
+        echo 'Rodando testes do ios';
     }
     
     public function lint() {
-        echo 'Linting the ios code';
+        echo 'Análisando o código do ios';
     }
     
     public function assemble() {
-        echo 'Assembling the ios build';
+        echo 'Montando a build do ios';
     }
     
     public function deploy() {
-        echo 'Deploying ios build to server';
+        echo 'Fazendo o deploy da build do ios para o servidor';
     }
 }
 ```
-And then it can be used as
+Que então, podem ser usadas como
 
 ```php
 $androidBuilder = new AndroidBuilder();
 $androidBuilder->build();
 
 // Output:
-// Running android tests
-// Linting the android code
-// Assembling the android build
-// Deploying android build to server
+// Rodando testes do android
+// Análisando o código do android
+// Montando a build do android
+// Fazendo o deploy da build do android para o servidor
 
 $iosBuilder = new IosBuilder();
 $iosBuilder->build();
 
 // Output:
-// Running ios tests
-// Linting the ios code
-// Assembling the ios build
-// Deploying ios build to server
+// Rodando testes do ios
+// Análisando o código do ios
+// Montando a build do ios
+// Fazendo o deploy da build do ios para o servidor
 ```
 
 ## 🚦 Envolva-se 
