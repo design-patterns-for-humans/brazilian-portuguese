@@ -1316,14 +1316,14 @@ $bank->pay(259);
 👮 Command
 -------
 
-Exemplo do mundo geral
+Exemplo do mundo real
 > Um exemplo genérico seria você pedindo comida em um restaurante. Você (i.e. `Client`) pede ao garçon (i.e. `Invoker`) trazer comida (i.e. `Command`) e o garçon simplesmente leva seu pedido ao Chef (i.e. `Receiver`) que tem o conhecimento de o que e como cozinhar. 
 > Outro exemplo seria você (i.e. `Client`) ligando (i.e. `Command`) a televisão (i.e. `Receiver`) usando um controle remoto (`Invoker`).
 
 Resumindo
 > O padrão Command permite que você encapsule ações em objetos. A ideia principal por trás desse padrão é prover os meios de desacoplar o cliente do receptor.
 
-Wikipedia says
+A Wikipedia diz
 > Na programação orientada a objeto, o padrão Command é um padrão de projeto comportamental no qual um objeto é usado para encapsular toda informação necessária para executar uma ação ou ativar um evento em um momento posterior. Esta informação inclui o nome do método, o objeto que possui o método e os valores para os parâmetros do método.
 
 **Exemplo Programático**
@@ -1390,7 +1390,7 @@ class TurnOff implements Command {
     }
 }
 ```
-Então temos um `Invoker` com o qual o cliente vai interagir para processar qualquer comando.
+Então temos um `Invoker` com o qual o `Client` vai interagir para processar qualquer comando.
 ```php
 // Invoker
 class RemoteControl {
@@ -1400,7 +1400,7 @@ class RemoteControl {
     }
 }
 ```
-Finalmente, vamos ver como podemos usá-lo com o nosso cliente
+Finalmente, vamos ver como podemos usá-lo com o nosso `Client`
 ```php
 $bulb = new Bulb();
 
@@ -2022,12 +2022,13 @@ Exemplo do mundo real
 > - Construir os muros
 > - Construir um teto
 > - Construir outros andares
+
 > A ordem destes passos não pode ser mudada i.e. Você não pode construir um teto antes de construir as paredes e etc mas cada um dos passos pode ser modificado, por exemplo, muros podem ser construídos de madeira, poliéster ou pedra.
   
 Resumindo
 > O Template method define o esqueleto de como um algoritmo pode ser executado, mas delega a a implementação destes passos para a classes filhas.
  
-Wikipedia diz
+A Wikipedia diz
 > Na engenharia de software, o padrão template method é um padrão de projeto comportamental que define o esqueleto de programa de um algoritmo em operação, delegando alguns passos para as subclasses. Ele permite que seja possível redefinir alguns passos do algoritmo sem mudar a estrutura do mesmo.
 
 **Exemplo Programático**
