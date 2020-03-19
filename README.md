@@ -216,7 +216,7 @@ Exemplo do mundo real
 
 
 Resumindo
-> Uma Factory de Factorues; uma factory que agrupa outras factories com o seu relacionado/dependente sem especificar sua classe concreta.
+> Uma Factory de Factories; uma factory que agrupa outras factories com o seu relacionado/dependente sem especificar sua classe concreta.
 
   
 Wikipedia diz
