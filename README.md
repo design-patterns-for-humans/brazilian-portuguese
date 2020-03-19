@@ -38,7 +38,7 @@ e não soluções **para encontrar** problemas; então não pense demais.
 - Se for utilizado no local correto de maneira correta, eles podem se provar
 salvadores; senão eles podem acabar resultando numa bagunça de código horrorosa.
 
-Types of Design Patterns
+Tipos de Design Patterns
 -----------------
 
 * [De Criação](#design-patterns-de-criação)
