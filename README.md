@@ -120,7 +120,7 @@ Console.WriteLine("Height: " + door.Height);
 
 **Quando usar?**
 
-Ao criar um objeto que envolve alguma lógica e não é apenas algumas atribuições, faz sentido colocá-lo em uma factory dedicada em vez de repetir o mesmo código em todos os lugares.
+Ao criar um objeto que envolve alguma lógica e não apenas algumas atribuições, faz sentido colocá-lo em uma factory dedicada em vez de repetir o mesmo código em todos os lugares.
 
 🏭 Factory Method
 --------------
