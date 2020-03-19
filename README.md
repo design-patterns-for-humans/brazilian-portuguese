@@ -167,7 +167,7 @@ Agora vamos criar o nosso `HiringManager`
 abstract class HiringManager
 {
     // Factory method
-    abstract public IInterviewer MakeInterviewer();
+    public abstract IInterviewer MakeInterviewer();
     
     public void TakeInterview()
     {
