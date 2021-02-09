@@ -656,7 +656,7 @@ class WildDog
 // Adaptador em torno do cão selvagem para torná-lo compatível com o nosso jogo
 class WildDogAdapter : ILion
 {
-    private Dog { get; set; }
+    private WildDog Dog { get; set; }
 
     public WildDogAdapter(WildDog dog)
     {
