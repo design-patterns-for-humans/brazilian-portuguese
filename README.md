@@ -673,7 +673,7 @@ E agora o `WildDog` pode ser usado em nosso jogo usando` WildDogAdapter`.
 
 ```csharp
 var wildDog = new WildDog();
-wildDogAdapter = new WildDogAdapter(wildDog);
+var wildDogAdapter = new WildDogAdapter(wildDog);
 
 var hunter = new Hunter();
 hunter.Hunt(wildDogAdapter);
