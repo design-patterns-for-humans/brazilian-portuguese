@@ -656,7 +656,7 @@ class WildDog
 // Adaptador em torno do cão selvagem para torná-lo compatível com o nosso jogo
 class WildDogAdapter : ILion
 {
-    private Dog { get; set; }
+    private WildDog Dog { get; set; }
 
     public WildDogAdapter(WildDog dog)
     {
@@ -673,7 +673,7 @@ E agora o `WildDog` pode ser usado em nosso jogo usando` WildDogAdapter`.
 
 ```csharp
 var wildDog = new WildDog();
-wildDogAdapter = new WildDogAdapter(wildDog);
+var wildDogAdapter = new WildDogAdapter(wildDog);
 
 var hunter = new Hunter();
 hunter.Hunt(wildDogAdapter);
